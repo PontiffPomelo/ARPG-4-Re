@@ -1,0 +1,18 @@
+{
+    "character": "Lily",
+    "pose": "W_Sitting",
+    "expression": "Swimsuit",
+    "type": "Clothes",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/W_Sitting/Swimsuit_W_Sitting_Default.png",
+            "position": [
+                631,
+                647,
+                0.235659658908844
+            ],
+            "name": "Swimsuit"
+        }
+    ],
+    "camera": "Default"
+}

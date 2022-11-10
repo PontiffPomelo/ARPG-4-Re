@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://4wrcgapgyrrh"]
+
+[ext_resource type="Script" path="res://Scripts/UI/QuestElement.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://pmqyq8svp32o" path="res://Assets/Images/UI_DialogueBox.png" id="2"]
+
+[node name="QuestElement" type="NinePatchRect"]
+self_modulate = Color(0.188235, 0.188235, 0.188235, 1)
+offset_right = 191.0
+offset_bottom = 20.0
+focus_mode = 2
+mouse_filter = 0
+texture = ExtResource("2")
+region_rect = Rect2(0, 0, 120, 120)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+script = ExtResource("1")
+focus_color = Color(0.988235, 0.968627, 0.968627, 1)
+focus_color_self = Color(0.788235, 0.788235, 0.788235, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.28996
+offset_bottom = 5.28996
+grow_horizontal = 2
+grow_vertical = 0

@@ -1,0 +1,54 @@
+{
+    "character": "Lily",
+    "pose": "Tentacle_Flail",
+    "expression": "Pain",
+    "type": "Expression",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyebrows_Fill_Tentacle_Flail,Pain_PyreFullPerspective.png",
+            "position": [
+                1629,
+                429,
+                -0.16557122766971588
+            ],
+            "name": "Eyebrows_Fill"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Evil_Grin_Tentacle_Flail,Pain_PyreFullPerspective.png",
+            "position": [
+                1754,
+                540,
+                -0.1379382461309433
+            ],
+            "name": "Evil_Grin"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyes,Eye_L,Eye_R_Tentacle_Flail,Pain_PyreFullPerspective.png",
+            "position": [
+                1589,
+                401,
+                0.2962818741798401
+            ],
+            "name": "Eyes,Eye_L,Eye_R"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyes_Outline_Tentacle_Flail,Pain_PyreFullPerspective.png",
+            "position": [
+                1647,
+                444,
+                0.2962818741798401
+            ],
+            "name": "Eyes_Outline"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyebrows_Outline_Tentacle_Flail,Pain_PyreFullPerspective.png",
+            "position": [
+                1628,
+                428,
+                0.2980053424835205
+            ],
+            "name": "Eyebrows_Outline"
+        }
+    ],
+    "camera": "PyreFullPerspective"
+}

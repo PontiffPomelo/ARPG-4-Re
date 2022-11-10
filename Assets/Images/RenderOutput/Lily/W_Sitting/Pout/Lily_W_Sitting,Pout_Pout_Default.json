@@ -1,0 +1,63 @@
+{
+    "character": "Lily",
+    "pose": "W_Sitting",
+    "expression": "Pout",
+    "type": "Expression",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/W_Sitting/Pout_W_Sitting,Pout_Default.png",
+            "position": [
+                839,
+                679,
+                -0.1658933460712433
+            ],
+            "name": "Pout"
+        },
+        {
+            "path": "./RenderOutput/Lily/W_Sitting/Eyebrows_Fill_W_Sitting,Pout_Default.png",
+            "position": [
+                741,
+                555,
+                -0.15469898283481598
+            ],
+            "name": "Eyebrows_Fill"
+        },
+        {
+            "path": "./RenderOutput/Lily/W_Sitting/Blush1_W_Sitting,Pout_Default.png",
+            "position": [
+                766,
+                607,
+                -0.15302102267742157
+            ],
+            "name": "Blush1"
+        },
+        {
+            "path": "./RenderOutput/Lily/W_Sitting/Eyes,Eye_L,Eye_R_W_Sitting,Pout_Default.png",
+            "position": [
+                708,
+                497,
+                0.30715423822402954
+            ],
+            "name": "Eyes,Eye_L,Eye_R"
+        },
+        {
+            "path": "./RenderOutput/Lily/W_Sitting/Eyes_Outline_W_Sitting,Pout_Default.png",
+            "position": [
+                742,
+                584,
+                0.30715423822402954
+            ],
+            "name": "Eyes_Outline"
+        },
+        {
+            "path": "./RenderOutput/Lily/W_Sitting/Eyebrows_Outline_W_Sitting,Pout_Default.png",
+            "position": [
+                739,
+                555,
+                0.30887776613235474
+            ],
+            "name": "Eyebrows_Outline"
+        }
+    ],
+    "camera": "Default"
+}

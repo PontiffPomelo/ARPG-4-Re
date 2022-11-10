@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://32uh27iiqi8v"]
+
+[node name="Connection" type="Panel"]
+self_modulate = Color(16, 16, 16, 1)
+offset_left = 71.2884
+offset_top = 47.9373
+offset_right = 183.288
+offset_bottom = 53.9373

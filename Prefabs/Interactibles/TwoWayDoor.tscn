@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://6xr3o33kaqxn"]
+
+[ext_resource type="PackedScene" uid="uid://cajr4blyqbvc0" path="res://Prefabs/Interactibles/Door.tscn" id="2"]
+
+[node name="TwoWayDoor" type="Node2D"]
+
+[node name="Door1" parent="." instance=ExtResource("2")]
+position = Vector2(-0.0917206, -0.253059)
+label = "Door"
+is_auto = false
+
+[node name="Target" parent="Door1" index="1"]
+position = Vector2(0.195833, -20.9946)
+
+[node name="Door2" parent="." instance=ExtResource("2")]
+position = Vector2(0.122925, 0.176224)
+rotation = 3.14159
+label = "Door"
+is_auto = false
+
+[node name="Target" parent="Door2" index="1"]
+position = Vector2(-0.0188056, -20.78)
+
+[editable path="Door1"]
+[editable path="Door2"]

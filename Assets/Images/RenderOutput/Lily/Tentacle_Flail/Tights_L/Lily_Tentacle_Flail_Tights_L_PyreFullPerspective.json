@@ -1,0 +1,18 @@
+{
+    "character": "Lily",
+    "pose": "Tentacle_Flail",
+    "expression": "Tights_L",
+    "type": "Clothes",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Tights_L_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1536,
+                1155,
+                0.1957268863916397
+            ],
+            "name": "Tights_L"
+        }
+    ],
+    "camera": "PyreFullPerspective"
+}

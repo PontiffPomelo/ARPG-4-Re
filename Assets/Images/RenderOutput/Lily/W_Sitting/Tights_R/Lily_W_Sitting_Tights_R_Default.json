@@ -1,0 +1,18 @@
+{
+    "character": "Lily",
+    "pose": "W_Sitting",
+    "expression": "Tights_R",
+    "type": "Clothes",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/W_Sitting/Tights_R_W_Sitting_Default.png",
+            "position": [
+                989,
+                1024,
+                0.1299658566713333
+            ],
+            "name": "Tights_R"
+        }
+    ],
+    "camera": "Default"
+}

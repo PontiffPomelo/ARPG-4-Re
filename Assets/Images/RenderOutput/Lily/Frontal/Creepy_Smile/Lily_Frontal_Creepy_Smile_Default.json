@@ -1,0 +1,54 @@
+{
+    "character": "Lily",
+    "pose": "Frontal",
+    "expression": "Creepy_Smile",
+    "type": "Expression",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/Frontal/Eyebrows_Fill_Frontal_Default.png",
+            "position": [
+                511,
+                287,
+                -0.15469913184642792
+            ],
+            "name": "Eyebrows_Fill"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Evil_Grin_Frontal_Default.png",
+            "position": [
+                598,
+                417,
+                -0.12706612050533295
+            ],
+            "name": "Evil_Grin"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Eyes,Eye_L,Eye_R_Frontal_Default.png",
+            "position": [
+                476,
+                231,
+                0.3071540594100952
+            ],
+            "name": "Eyes,Eye_L,Eye_R"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Eyes_Outline_Frontal_Default.png",
+            "position": [
+                513,
+                316,
+                0.3071540594100952
+            ],
+            "name": "Eyes_Outline"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Eyebrows_Outline_Frontal_Default.png",
+            "position": [
+                509,
+                287,
+                0.308877557516098
+            ],
+            "name": "Eyebrows_Outline"
+        }
+    ],
+    "camera": "Default"
+}

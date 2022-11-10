@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxj6ge6umvtnv"]
+
+[ext_resource type="Script" path="res://Scripts/GenericScript.gd" id="1"]
+[ext_resource type="Script" path="res://Scripts/UI/Clock.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://07uu8jiw510d" path="res://Assets/Images/clock_icon16.png" id="3"]
+
+[node name="Header" type="Panel"]
+self_modulate = Color(0.298039, 0.298039, 0.298039, 1)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUESTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Clock" type="Label" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -68.4102
+offset_right = -23.4102
+grow_horizontal = 0
+grow_vertical = 2
+text = "10:31"
+vertical_alignment = 1
+script = ExtResource("2")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 44.0
+offset_bottom = 41.0
+text = "<"
+
+[node name="GenericScript" type="Node" parent="Button"]
+script = ExtResource("1")
+properties = []
+code = "Global.UI.back()"
+
+[node name="Clock_Symbol" type="TextureRect" parent="."]
+self_modulate = Color(0.376471, 0.376471, 0.376471, 1)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.7561
+offset_top = 10.9103
+offset_right = -3.7561
+offset_bottom = -13.0897
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3")
+stretch_mode = 1
+
+[connection signal="pressed" from="Button" to="Button/GenericScript" method="run"]

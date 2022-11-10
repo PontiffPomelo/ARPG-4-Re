@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Materials/Shaders/circle.gdshader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/inner_radius = 0.808
+shader_param/outer_radius = 0.921
+shader_param/progress = 0.5
+shader_param/transition = 0.023
+shader_param/active_color = Color( 0.3, 0.3, 1, 1 )
+shader_param/hidden_color = Color( 0.482353, 0.482353, 0.482353, 1 )
+shader_param/fill_color = Color( 0.92549, 0.972549, 1, 1 )

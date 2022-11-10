@@ -1,0 +1,18 @@
+{
+    "character": "Lily",
+    "pose": "First_Person",
+    "expression": "Bloodied_Hands",
+    "type": "Other",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/First_Person/HandsInBlood_First_Person_Default.png",
+            "position": [
+                1630,
+                218,
+                0.34592512249946594
+            ],
+            "name": "HandsInBlood"
+        }
+    ],
+    "camera": "Default"
+}

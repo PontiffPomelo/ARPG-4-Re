@@ -1,0 +1,40 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+"default_portrait": "Book_Default_Default",
+"description": "",
+"display_name": "Tome",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"Book_Default_Default": {
+"image": "res://Assets/Images/RenderOutput/Tome/Default/Book_Default_Default.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Face_Default,Default_Smile_Default": {
+"image": "res://Assets/Images/RenderOutput/Tome/Default/Face_Default,Default_Smile_Default.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Face_Default_Default": {
+"image": "res://Assets/Images/RenderOutput/Tome/Default/Face_Default_Default.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+"scale": 1.0
+}

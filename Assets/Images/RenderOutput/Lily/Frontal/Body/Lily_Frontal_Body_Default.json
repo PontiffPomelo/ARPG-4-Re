@@ -1,0 +1,90 @@
+{
+    "character": "Lily",
+    "pose": "Frontal",
+    "expression": "Body",
+    "type": "Body",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/Frontal/Hair_Long_Back_Frontal_Default.png",
+            "position": [
+                430,
+                137,
+                -0.5788660645484924
+            ],
+            "name": "Hair_Long_Back"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Body,Leg_R,Foot_R,Leg_L,Foot_L,Arm_R,Arm_L,Hand_R,Hand_L,Arms,Groin_Frontal_Default.png",
+            "position": [
+                343,
+                426,
+                -0.38062164187431335
+            ],
+            "name": "Body,Leg_R,Foot_R,Leg_L,Foot_L,Arm_R,Arm_L,Hand_R,Hand_L,Arms,Groin"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Breasts_Frontal_Default.png",
+            "position": [
+                518,
+                589,
+                -0.37838318943977356
+            ],
+            "name": "Breasts"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Breasts_Top_Frontal_Default.png",
+            "position": [
+                489,
+                525,
+                -0.33119067549705505
+            ],
+            "name": "Breasts_Top"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Ear_Frontal_Default.png",
+            "position": [
+                465,
+                322,
+                -0.25250735878944397
+            ],
+            "name": "Ear"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Face_Fill_Frontal_Default.png",
+            "position": [
+                475,
+                171,
+                -0.19469322264194489
+            ],
+            "name": "Face_Fill"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Hair_Long_Shadows_Frontal_Default.png",
+            "position": [
+                461,
+                198,
+                -0.17085573077201843
+            ],
+            "name": "Hair_Long_Shadows"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Nose_Frontal_Default.png",
+            "position": [
+                610,
+                384,
+                -0.15410391986370087
+            ],
+            "name": "Nose"
+        },
+        {
+            "path": "./RenderOutput/Lily/Frontal/Hair_Long_Front_Frontal_Default.png",
+            "position": [
+                458,
+                162,
+                0.2895663380622864
+            ],
+            "name": "Hair_Long_Front"
+        }
+    ],
+    "camera": "Default"
+}

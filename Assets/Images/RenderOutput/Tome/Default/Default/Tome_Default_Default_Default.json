@@ -1,0 +1,18 @@
+{
+    "character": "Tome",
+    "pose": "Default",
+    "expression": "Default",
+    "type": "Body",
+    "layers": [
+        {
+            "path": "./RenderOutput/Tome/Default/Book_Default_Default.png",
+            "position": [
+                200,
+                112,
+                0.8882760405540466
+            ],
+            "name": "Book"
+        }
+    ],
+    "camera": "Default"
+}

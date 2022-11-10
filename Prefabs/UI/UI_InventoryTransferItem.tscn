@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://d17lf15pvp5bm"]
+
+[ext_resource type="Texture2D" uid="uid://h0lu0rmnd1o6" path="res://Assets/Images/UI/UI_DialogueBox_Medium.svg" id="1"]
+[ext_resource type="Script" path="res://Scripts/UI/UI_ContainerItem.gd" id="2"]
+[ext_resource type="Theme" uid="uid://dl5dnn6fhdtj3" path="res://Resources/Themes/default_theme.theme" id="3"]
+
+[node name="Panel" type="NinePatchRect"]
+self_modulate = Color(0.215686, 0.215686, 0.215686, 1)
+offset_right = 257.0
+offset_bottom = 40.0
+focus_mode = 2
+mouse_filter = 0
+texture = ExtResource("1")
+patch_margin_left = 16
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 16
+script = ExtResource("2")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme = ExtResource("3")
+text = "Item"
+horizontal_alignment = 1
+vertical_alignment = 1

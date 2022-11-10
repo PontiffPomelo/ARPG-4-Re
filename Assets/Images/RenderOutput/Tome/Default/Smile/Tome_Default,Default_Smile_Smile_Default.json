@@ -1,0 +1,18 @@
+{
+    "character": "Tome",
+    "pose": "Default",
+    "expression": "Smile",
+    "type": "Expression",
+    "layers": [
+        {
+            "path": "./RenderOutput/Tome/Default/Face_Default,Default_Smile_Default.png",
+            "position": [
+                325,
+                541,
+                0.9225225448608398
+            ],
+            "name": "Face"
+        }
+    ],
+    "camera": "Default"
+}

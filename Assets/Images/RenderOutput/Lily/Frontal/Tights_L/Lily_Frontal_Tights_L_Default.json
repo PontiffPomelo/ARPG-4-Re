@@ -1,0 +1,18 @@
+{
+    "character": "Lily",
+    "pose": "Frontal",
+    "expression": "Tights_L",
+    "type": "Clothes",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/Frontal/Tights_L_Frontal_Default.png",
+            "position": [
+                340,
+                1093,
+                0.12118444591760635
+            ],
+            "name": "Tights_L"
+        }
+    ],
+    "camera": "Default"
+}

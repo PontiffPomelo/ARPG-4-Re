@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bempwgacspfvi"]
+
+[node name="SkillTree" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1

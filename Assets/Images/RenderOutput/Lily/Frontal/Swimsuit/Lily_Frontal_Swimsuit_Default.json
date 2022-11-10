@@ -1,0 +1,18 @@
+{
+    "character": "Lily",
+    "pose": "Frontal",
+    "expression": "Swimsuit",
+    "type": "Clothes",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/Frontal/Swimsuit_Frontal_Default.png",
+            "position": [
+                406,
+                381,
+                0.23565953969955444
+            ],
+            "name": "Swimsuit"
+        }
+    ],
+    "camera": "Default"
+}

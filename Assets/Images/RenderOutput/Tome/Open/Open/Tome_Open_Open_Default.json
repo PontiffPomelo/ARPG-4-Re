@@ -1,0 +1,18 @@
+{
+    "character": "Tome",
+    "pose": "Open",
+    "expression": "Open",
+    "type": "Body",
+    "layers": [
+        {
+            "path": "./RenderOutput/Tome/Open/Book_Open_Default.png",
+            "position": [
+                817,
+                173,
+                0.8953107595443726
+            ],
+            "name": "Book"
+        }
+    ],
+    "camera": "Default"
+}

@@ -1,0 +1,2219 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://Prefabs/UI/UI_InventoryTransferItem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/UI/InventoryMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/godot/UncialAntiqua-Regular.theme" type="Theme" id=3]
+[ext_resource path="res://Scripts/UI/FocusPanel.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/UI/AutoFocusContainer.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/UI/NotificationSystem.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/UI/SaveMenu.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/UI/UI.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/UI/Transitioner.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/UI/ScaleChildrenToFitContainer.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/UI/ChoiceButton.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/UI/DialogueBox.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/JSON_Sprite.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/UI/PoorTextLabel.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/UI/UI_ContainerTransfer.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/PanelContainerPlus.gd" type="Script" id=16]
+[ext_resource path="res://Scripts/OptionsMenu.gd" type="Script" id=17]
+[ext_resource path="res://images/UI_DialogueBox2.svg" type="Texture2D" id=18]
+[ext_resource path="res://Scripts/UI/QuestMenu.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/UI/UI_FadeOutPanel.gd" type="Script" id=20]
+[ext_resource path="res://Scripts/EscapeMenu.gd" type="Script" id=21]
+[ext_resource path="res://Prefabs/UI/UI_Scrollable_Table.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Assets/Fonts/godot/dialogue_theme.tres" type="Theme" id=23]
+[ext_resource path="res://Scripts/UI/AchievementsPage.gd" type="Script" id=24]
+[ext_resource path="res://Scripts/UI/RelationsPage.gd" type="Script" id=25]
+[ext_resource path="res://Scripts/UI/StatsPage.gd" type="Script" id=26]
+[ext_resource path="res://Scripts/UI/StatusPanel.gd" type="Script" id=27]
+[ext_resource path="res://Scripts/UI/TransitionerTarget.gd" type="Script" id=28]
+[ext_resource path="res://Scripts/UI/SelectionList.gd" type="Script" id=29]
+[ext_resource path="res://Scripts/UI/CraftingMenu.gd" type="Script" id=30]
+[ext_resource path="res://Scripts/UI/ContextMenu.gd" type="Script" id=31]
+[ext_resource path="res://Scripts/MyLineEdit.gd" type="Script" id=32]
+[ext_resource path="res://Scripts/GenericScript.gd" type="Script" id=33]
+[ext_resource path="res://Scripts/UI/UI_GlobalValueSetter.gd" type="Script" id=34]
+[ext_resource path="res://Scripts/UI/EnvelopeContainer.gd" type="Script" id=35]
+[ext_resource path="res://Prefabs/UI/UI_Stats_Panel.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Prefabs/UI/UI_Header.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Prefabs/UI/UI_InventorySlot.tscn" type="PackedScene" id=38]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 28 )
+target = NodePath("..")
+variable_name = "modulate.a"
+value_hidden = 0.0
+value_shown = 1.0
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 28 )
+target = NodePath("..")
+variable_name = "position.y"
+value_hidden = 150.0
+value_shown = 0.0
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 28 )
+target = NodePath("../Character_Left")
+variable_name = "position.x"
+value_hidden = -100.0
+value_shown = 0.0
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 28 )
+target = NodePath("../Character_Left")
+variable_name = "modulate.a"
+value_hidden = 0.0
+value_shown = 1.0
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 28 )
+target = NodePath("../Centered_Image")
+variable_name = "modulate.a"
+value_hidden = 0.0
+value_shown = 1.0
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 28 )
+target = NodePath("../Character_Right")
+variable_name = "pivot_offset.x"
+value_hidden = 50.0
+value_shown = 0.0
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 28 )
+target = NodePath("../Character_Right")
+variable_name = "modulate.a"
+value_hidden = 0.0
+value_shown = 1.0
+
+[sub_resource type="StyleBoxFlat" id=9]
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource( 8 )
+
+[node name="FadePanel" type="Panel" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueSystem" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Transitioner_DialogueSystem" type="Control" parent="DialogueSystem"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2( 15, 15 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+targets = [ SubResource( 2 ), SubResource( 3 ) ]
+transition_time = 0.5
+funcion = "return 1 - pow(1-x,4)"
+current_value = 1.0
+
+[node name="ScaleChildrenToFitContainer" type="Container" parent="DialogueSystem"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+centered = true
+
+[node name="Panel" type="Panel" parent="DialogueSystem/ScaleChildrenToFitContainer"]
+offset_left = -2.41088e-05
+offset_top = 11.3747
+offset_right = 1923.3
+offset_bottom = 1095.58
+minimum_size = Vector2( 1920, 1080 )
+scale = Vector2( 0.532418, 0.532418 )
+
+[node name="Canvas" type="Control" parent="DialogueSystem"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0944824
+offset_bottom = 0.0944824
+script = ExtResource( 10 )
+
+[node name="Transitioner_Left" type="Control" parent="DialogueSystem/Canvas"]
+offset_left = 212.0
+offset_top = -9.53667e-06
+offset_right = 252.0
+offset_bottom = 40.0
+scale = Vector2( 15, 15 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+targets = [ SubResource( 4 ), SubResource( 5 ) ]
+transition_time = 0.3
+funcion = "return 1 - pow(1-x,4)"
+current_value = 1.0
+
+[node name="Transitioner_Center" type="Control" parent="DialogueSystem/Canvas"]
+offset_left = 212.0
+offset_top = -9.53667e-06
+offset_right = 252.0
+offset_bottom = 40.0
+scale = Vector2( 15, 15 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+targets = [ SubResource( 6 ) ]
+transition_time = 0.3
+
+[node name="Transitioner_Right" type="Control" parent="DialogueSystem/Canvas"]
+offset_left = 212.0
+offset_top = -9.53667e-06
+offset_right = 252.0
+offset_bottom = 40.0
+scale = Vector2( 15, 15 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+targets = [ SubResource( 7 ), SubResource( 8 ) ]
+transition_time = 0.3
+funcion = "return 1 - pow(1-x,4)"
+current_value = 1.0
+
+[node name="Character_Left" type="Container" parent="DialogueSystem/Canvas"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+clip_contents = true
+size_flags_horizontal = 15
+size_flags_vertical = 15
+script = ExtResource( 13 )
+centered = true
+path = "res://images/RenderOutput/Lily/W_Sitting/Happy_Blush/Lily_W_Sitting_Happy_Blush_Default.json"
+
+[node name="OffsetContainer" type="Container" parent="DialogueSystem/Canvas/Character_Left"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.67029e-05
+offset_top = 12.0
+offset_right = 3840.0
+offset_bottom = 2172.0
+minimum_size = Vector2( 3840, 2160 )
+scale = Vector2( 0.266667, 0.266667 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Centered_Image" type="Container" parent="DialogueSystem/Canvas"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+clip_contents = true
+size_flags_horizontal = 15
+size_flags_vertical = 15
+script = ExtResource( 13 )
+centered = true
+path = "res://images/RenderOutput/Tome/Open/Open/Tome_Open_Open_Default.json"
+
+[node name="OffsetContainer" type="Container" parent="DialogueSystem/Canvas/Centered_Image"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.67029e-05
+offset_top = 12.0
+offset_right = 3840.0
+offset_bottom = 2172.0
+minimum_size = Vector2( 3840, 2160 )
+scale = Vector2( 0.266667, 0.266667 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character_Right" type="Container" parent="DialogueSystem/Canvas"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1024.0
+offset_top = -0.188965
+offset_right = 1024.0
+offset_bottom = -0.188965
+scale = Vector2( -1, 1 )
+clip_contents = true
+size_flags_horizontal = 15
+size_flags_vertical = 15
+script = ExtResource( 13 )
+centered = true
+path = "res://images/RenderOutput/Tome/Default/Default/Tome_Default_Default_Default.json"
+
+[node name="OffsetContainer" type="Container" parent="DialogueSystem/Canvas/Character_Right"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.67029e-05
+offset_top = 12.0
+offset_right = 3840.0
+offset_bottom = 2172.0
+minimum_size = Vector2( 3840, 2160 )
+scale = Vector2( 0.266667, 0.266667 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueBox" type="NinePatchRect" parent="DialogueSystem"]
+modulate = Color( 0.996078, 0.996078, 1, 1 )
+self_modulate = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -156.0
+offset_right = -20.0
+offset_bottom = -12.0
+texture = ExtResource( 18 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueContent" type="RichTextLabel" parent="DialogueSystem/DialogueBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = -12.0
+offset_bottom = -12.0
+theme = ExtResource( 23 )
+bbcode_enabled = true
+text = "[font size=20]This is a test content that[/font] is very long so as to break line and do other interesting stuff that is also very long."
+text = "This is a test content that is very long so as to break line and do other interesting stuff that is also very long."
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+resized_text = "[font size=20]This is a test content that[/font] is very long so as to break line and do other interesting stuff that is also very long."
+
+[node name="ColorRect2" type="ColorRect" parent="DialogueSystem/DialogueBox"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.2766
+offset_top = -178.918
+offset_right = 153.277
+offset_bottom = -141.918
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="DialogueSystem/DialogueBox/ColorRect2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -14.5
+offset_right = 56.5
+offset_bottom = 14.5
+text = "Test Label"
+align = 1
+vertical_alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer_Next_Letter" type="Timer" parent="DialogueSystem/DialogueBox"]
+wait_time = 0.05
+autostart = true
+
+[node name="Timer_Skip" type="Timer" parent="DialogueSystem/DialogueBox"]
+wait_time = 0.005
+autostart = true
+
+[node name="ClickCatcher" type="Button" parent="DialogueSystem"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChoiceButtons" type="Container" parent="DialogueSystem"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource( 5 )
+
+[node name="ChoiceButton" type="Button" parent="DialogueSystem/ChoiceButtons"]
+offset_left = 436.433
+offset_top = 282.973
+offset_right = 584.433
+offset_bottom = 313.973
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractionMessage" type="Label" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -172.0
+offset_bottom = -152.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+text = "Test aaaaaaaaass"
+align = 1
+vertical_alignment = 1
+
+[node name="EscapeMenu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EscapeMenu" type="Panel" parent="EscapeMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EscapeMenu/EscapeMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.0
+offset_top = -300.0
+offset_right = 317.0
+offset_bottom = 300.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 258.0
+offset_right = 634.0
+offset_bottom = 278.0
+text = "Continue"
+
+[node name="HSeparator" type="HSeparator" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 282.0
+offset_right = 634.0
+offset_bottom = 286.0
+
+[node name="SaveLoad" type="Button" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 290.0
+offset_right = 634.0
+offset_bottom = 310.0
+text = "Savegames"
+
+[node name="HSeparator3" type="HSeparator" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 282.0
+offset_right = 634.0
+offset_bottom = 286.0
+
+[node name="Options" type="Button" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 258.0
+offset_right = 634.0
+offset_bottom = 278.0
+text = "Options"
+
+[node name="HSeparator2" type="HSeparator" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 314.0
+offset_right = 634.0
+offset_bottom = 318.0
+
+[node name="Exit" type="Button" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 322.0
+offset_right = 634.0
+offset_bottom = 342.0
+text = "Quit game"
+
+[node name="QuestMenu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0944824
+offset_bottom = -0.0944824
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="QuestMenu"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AutoFocusContainer" type="Control" parent="QuestMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+depth_first = true
+
+[node name="List" type="Panel" parent="QuestMenu/AutoFocusContainer"]
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 44.0
+offset_right = 207.0
+offset_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="QuestMenu/AutoFocusContainer/List"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+size_flags_horizontal = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuestMenu/AutoFocusContainer/List/ScrollContainer"]
+offset_right = 195.0
+size_flags_horizontal = 3
+
+[node name="Content" type="Panel" parent="QuestMenu/AutoFocusContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 211.0
+offset_top = 44.0
+offset_right = -4.0
+offset_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuestMenu/AutoFocusContainer/Content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = -12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="QuestMenu/AutoFocusContainer/Content/VBoxContainer"]
+offset_right = 789.0
+offset_bottom = 80.0
+size_flags_horizontal = 13
+size_flags_vertical = 13
+theme = ExtResource( 3 )
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="QuestMenu/AutoFocusContainer/Content/VBoxContainer"]
+offset_top = 84.0
+offset_right = 789.0
+offset_bottom = 88.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="QuestMenu/AutoFocusContainer/Content/VBoxContainer"]
+offset_top = 92.0
+offset_right = 789.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Description" type="RichTextLabel" parent="QuestMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer"]
+offset_right = 789.0
+offset_bottom = 456.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+script = ExtResource( 14 )
+
+[node name="Header" parent="QuestMenu/AutoFocusContainer" instance=ExtResource( 37 )]
+
+[node name="OptionsMenu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0944824
+offset_bottom = -0.0944824
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="OptionsMenu"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AutoFocusContainer" type="Control" parent="OptionsMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="List" type="Panel" parent="OptionsMenu/AutoFocusContainer"]
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 44.0
+offset_right = 207.0
+offset_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="OptionsMenu/AutoFocusContainer/List"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+size_flags_horizontal = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer"]
+offset_right = 195.0
+offset_bottom = 140.0
+size_flags_horizontal = 3
+
+[node name="All" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_right = 195.0
+offset_bottom = 20.0
+text = "All"
+
+[node name="Visuals" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_top = 24.0
+offset_right = 195.0
+offset_bottom = 44.0
+text = "Visuals"
+
+[node name="Audio" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_top = 48.0
+offset_right = 195.0
+offset_bottom = 68.0
+text = "Audio"
+
+[node name="Inputs" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_top = 72.0
+offset_right = 195.0
+offset_bottom = 92.0
+text = "Inputs"
+
+[node name="Game" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_top = 96.0
+offset_right = 195.0
+offset_bottom = 116.0
+text = "Game"
+
+[node name="Dialogue" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_top = 120.0
+offset_right = 195.0
+offset_bottom = 140.0
+text = "Dialogue"
+
+[node name="Header" parent="OptionsMenu/AutoFocusContainer" instance=ExtResource( 37 )]
+
+[node name="Content" type="Panel" parent="OptionsMenu/AutoFocusContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 211.0
+offset_top = 44.0
+offset_right = -4.0
+offset_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer"]
+offset_right = 793.0
+offset_bottom = 544.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VSplitContainer2" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer"]
+offset_right = 793.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Visuals" type="HSplitContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2"]
+offset_right = 793.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+dragger_visibility = 1
+
+[node name="Labels" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Visuals"]
+offset_right = 75.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="World3D Scale" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Visuals/Labels"]
+offset_right = 75.0
+offset_bottom = 40.0
+minimum_size = Vector2( 0, 40 )
+text = "World3D Scale"
+vertical_alignment = 1
+
+[node name="Inputs" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Visuals"]
+offset_left = 87.0
+offset_right = 793.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Visuals/Inputs"]
+offset_right = 706.0
+offset_bottom = 40.0
+minimum_size = Vector2( 0, 40 )
+text = "1"
+items = [ "0.25", null, false, 0, null, "0.5", null, false, 1, null, "1", null, false, 2, null, "2", null, false, 3, null, "4", null, false, 4, null ]
+selected = 2
+
+[node name="UI_GlobalValueSetter5" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Visuals/Inputs/OptionButton"]
+script = ExtResource( 34 )
+target = "../"
+global_name = "world_size"
+field_name = "selected"
+field_change_signal = "item_selected"
+
+[node name="Audio" type="HSplitContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2"]
+offset_top = 44.0
+offset_right = 793.0
+offset_bottom = 172.0
+size_flags_horizontal = 3
+dragger_visibility = 1
+
+[node name="VSplitContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio"]
+offset_right = 97.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Master Volume Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer"]
+offset_right = 97.0
+offset_bottom = 40.0
+minimum_size = Vector2( 0, 40 )
+text = "Master Volume"
+vertical_alignment = 1
+
+[node name="Music Volume Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer"]
+offset_top = 44.0
+offset_right = 97.0
+offset_bottom = 84.0
+minimum_size = Vector2( 0, 40 )
+text = "Music Volume"
+vertical_alignment = 1
+
+[node name="FX Volume Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer"]
+offset_top = 88.0
+offset_right = 97.0
+offset_bottom = 128.0
+minimum_size = Vector2( 0, 40 )
+text = "FX Volume"
+vertical_alignment = 1
+
+[node name="VSplitContainer2" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio"]
+offset_left = 109.0
+offset_right = 793.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="Master Volume" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2"]
+offset_right = 684.0
+offset_bottom = 40.0
+minimum_size = Vector2( 200, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 5.0
+step = 0.0
+
+[node name="UI_GlobalValueSetter" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2/Master Volume"]
+script = ExtResource( 34 )
+target = "../"
+global_name = "master_volume"
+
+[node name="Music Volume" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2"]
+offset_top = 44.0
+offset_right = 684.0
+offset_bottom = 84.0
+minimum_size = Vector2( 200, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 5.0
+step = 0.0
+
+[node name="UI_GlobalValueSetter" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2/Music Volume"]
+script = ExtResource( 34 )
+target = "../"
+global_name = "music_volume"
+
+[node name="FX Volume" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2"]
+offset_top = 88.0
+offset_right = 684.0
+offset_bottom = 128.0
+minimum_size = Vector2( 200, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 5.0
+step = 0.0
+
+[node name="UI_GlobalValueSetter" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2/FX Volume"]
+script = ExtResource( 34 )
+target = "../"
+global_name = "fx_volume"
+
+[node name="Game" type="HSplitContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2"]
+offset_top = 176.0
+offset_right = 793.0
+offset_bottom = 216.0
+size_flags_horizontal = 3
+dragger_visibility = 1
+
+[node name="VSplitContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Game"]
+offset_right = 161.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="CameraMovementDelay Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Game/VSplitContainer"]
+offset_right = 161.0
+offset_bottom = 40.0
+minimum_size = Vector2( 0, 40 )
+text = "Camera3D Movement Delay"
+vertical_alignment = 1
+
+[node name="VSplitContainer2" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Game"]
+offset_left = 173.0
+offset_right = 793.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="Camera3D Movement Delay Slider" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Game/VSplitContainer2"]
+offset_right = 620.0
+offset_bottom = 40.0
+minimum_size = Vector2( 200, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="UI_GlobalValueSetter" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Game/VSplitContainer2/Camera3D Movement Delay Slider"]
+script = ExtResource( 34 )
+target = "../"
+global_name = "camera_movement_delay"
+
+[node name="Dialogue" type="HSplitContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2"]
+offset_top = 220.0
+offset_right = 793.0
+offset_bottom = 348.0
+size_flags_horizontal = 3
+dragger_visibility = 1
+
+[node name="VSplitContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue"]
+offset_right = 129.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Skip Unread Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer"]
+offset_right = 129.0
+offset_bottom = 40.0
+minimum_size = Vector2( 0, 40 )
+text = "Skip Unread"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer"]
+offset_top = 44.0
+offset_right = 129.0
+offset_bottom = 84.0
+minimum_size = Vector2( 0, 40 )
+text = "Text Skip speed"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer"]
+offset_top = 88.0
+offset_right = 129.0
+offset_bottom = 128.0
+minimum_size = Vector2( 0, 40 )
+text = "Text playback speed"
+vertical_alignment = 1
+
+[node name="VSplitContainer2" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue"]
+offset_left = 141.0
+offset_right = 793.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="Skip Unread Toggle" type="CheckButton" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2"]
+offset_right = 652.0
+offset_bottom = 40.0
+minimum_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
+
+[node name="UI_GlobalValueSetter4" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2/Skip Unread Toggle"]
+script = ExtResource( 34 )
+target = "../"
+global_name = "skip_unread"
+field_name = "pressed"
+field_change_signal = "pressed"
+
+[node name="Skip Speed Slider" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2"]
+offset_top = 44.0
+offset_right = 652.0
+offset_bottom = 84.0
+minimum_size = Vector2( 200, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+
+[node name="UI_GlobalValueSetter2" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2/Skip Speed Slider"]
+script = ExtResource( 34 )
+target = "../"
+global_name = "skip_dialogue_speed"
+
+[node name="Playback Slider" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2"]
+offset_top = 88.0
+offset_right = 652.0
+offset_bottom = 128.0
+minimum_size = Vector2( 200, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="UI_GlobalValueSetter3" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2/Playback Slider"]
+script = ExtResource( 34 )
+target = "../"
+global_name = "dialogue_playback_speed"
+
+[node name="Inputs" type="HSplitContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2"]
+offset_top = 352.0
+offset_right = 793.0
+offset_bottom = 392.0
+size_flags_horizontal = 3
+dragger_visibility = 1
+
+[node name="VSplitContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Inputs"]
+offset_right = 78.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Inputs/VSplitContainer"]
+offset_right = 78.0
+offset_bottom = 40.0
+minimum_size = Vector2( 0, 40 )
+text = "Alwyas dash"
+vertical_alignment = 1
+
+[node name="VSplitContainer2" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Inputs"]
+offset_left = 90.0
+offset_right = 793.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="Always Dash Toggle" type="CheckButton" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Inputs/VSplitContainer2"]
+offset_right = 703.0
+offset_bottom = 40.0
+minimum_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
+
+[node name="UI_GlobalValueSetter4" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Inputs/VSplitContainer2/Always Dash Toggle"]
+script = ExtResource( 34 )
+target = "../"
+global_name = "always_dash"
+field_name = "pressed"
+field_change_signal = "pressed"
+
+[node name="InventoryMenu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="InventoryMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header2" parent="InventoryMenu/Panel" instance=ExtResource( 37 )]
+offset_top = -0.0944824
+offset_bottom = 39.9055
+
+[node name="Label" parent="InventoryMenu/Panel/Header2" index="0"]
+text = "Inventory"
+
+[node name="Inventory" type="Panel" parent="InventoryMenu/Panel"]
+self_modulate = Color( 0.380392, 0.380392, 0.380392, 1 )
+anchor_right = 0.66
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 58.0
+offset_right = 0.159973
+offset_bottom = -24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="InventoryMenu/Panel/Inventory"]
+anchor_right = 1.0
+anchor_bottom = 1.002
+offset_left = 6.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -43.0361
+size_flags_vertical = 3
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventorySlot" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 126.0
+offset_bottom = 90.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" parent="InventoryMenu/Panel/Inventory/GridContainer/InventorySlot/VBoxContainer" index="0"]
+offset_right = 104.0
+offset_bottom = 48.0
+
+[node name="Label" parent="InventoryMenu/Panel/Inventory/GridContainer/InventorySlot/VBoxContainer" index="1"]
+offset_top = 52.0
+offset_right = 104.0
+offset_bottom = 66.0
+
+[node name="InventorySlot2" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 130.0
+offset_right = 256.0
+offset_bottom = 90.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot3" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 260.0
+offset_right = 386.0
+offset_bottom = 90.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot4" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 390.0
+offset_right = 516.0
+offset_bottom = 90.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot5" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 520.0
+offset_right = 646.0
+offset_bottom = 90.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot10" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 94.0
+offset_right = 126.0
+offset_bottom = 184.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot9" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 130.0
+offset_top = 94.0
+offset_right = 256.0
+offset_bottom = 184.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot8" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 260.0
+offset_top = 94.0
+offset_right = 386.0
+offset_bottom = 184.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot7" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 390.0
+offset_top = 94.0
+offset_right = 516.0
+offset_bottom = 184.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot6" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 520.0
+offset_top = 94.0
+offset_right = 646.0
+offset_bottom = 184.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot15" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 188.0
+offset_right = 126.0
+offset_bottom = 278.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot14" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 130.0
+offset_top = 188.0
+offset_right = 256.0
+offset_bottom = 278.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot13" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 260.0
+offset_top = 188.0
+offset_right = 386.0
+offset_bottom = 278.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot12" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 390.0
+offset_top = 188.0
+offset_right = 516.0
+offset_bottom = 278.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot11" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 520.0
+offset_top = 188.0
+offset_right = 646.0
+offset_bottom = 278.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot20" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 282.0
+offset_right = 126.0
+offset_bottom = 372.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot19" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 130.0
+offset_top = 282.0
+offset_right = 256.0
+offset_bottom = 372.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot18" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 260.0
+offset_top = 282.0
+offset_right = 386.0
+offset_bottom = 372.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot17" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 390.0
+offset_top = 282.0
+offset_right = 516.0
+offset_bottom = 372.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot16" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 520.0
+offset_top = 282.0
+offset_right = 646.0
+offset_bottom = 372.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot25" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 376.0
+offset_right = 126.0
+offset_bottom = 466.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot24" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 130.0
+offset_top = 376.0
+offset_right = 256.0
+offset_bottom = 466.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot23" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 260.0
+offset_top = 376.0
+offset_right = 386.0
+offset_bottom = 466.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot22" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 390.0
+offset_top = 376.0
+offset_right = 516.0
+offset_bottom = 466.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot21" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource( 38 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 520.0
+offset_top = 376.0
+offset_right = 646.0
+offset_bottom = 466.0
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NextPage" type="Button" parent="InventoryMenu/Panel/Inventory"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49.6323
+offset_top = -28.5992
+offset_right = -7.63226
+offset_bottom = -8.59924
+text = "Next"
+
+[node name="PrevPage" type="Button" parent="InventoryMenu/Panel/Inventory"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -154.134
+offset_top = -28.5992
+offset_right = -112.134
+offset_bottom = -8.59924
+text = "Prev"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageNumber" type="Label" parent="InventoryMenu/Panel/Inventory"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.134
+offset_top = -28.5992
+offset_right = -50.134
+offset_bottom = -8.59924
+text = "1/10"
+align = 1
+vertical_alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Equipment" type="Panel" parent="InventoryMenu/Panel"]
+self_modulate = Color( 0.380392, 0.380392, 0.380392, 1 )
+anchor_left = 0.66
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.15997
+offset_top = 58.0
+offset_right = -12.0
+offset_bottom = -23.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character" type="Container" parent="InventoryMenu/Panel/Equipment"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+clip_contents = true
+size_flags_horizontal = 15
+size_flags_vertical = 15
+script = ExtResource( 13 )
+path = "res://images/RenderOutput/Lily/Frontal/Body_Clothed/Lily_Frontal_Body_Clothed_Default.json"
+
+[node name="OffsetContainer" type="Container" parent="InventoryMenu/Panel/Equipment/Character"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 479.0
+offset_bottom = 1827.0
+minimum_size = Vector2( 400, 1056.11 )
+scale = Vector2( 0.284072, 0.284072 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContainerTransfer" type="Panel" parent="InventoryMenu/Panel"]
+self_modulate = Color( 0.894118, 0.890196, 0.890196, 1 )
+anchor_left = 0.66
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.15997
+offset_top = 58.0
+offset_right = -12.0
+offset_bottom = -23.0
+script = ExtResource( 15 )
+
+[node name="Label" type="Label" parent="InventoryMenu/Panel/ContainerTransfer"]
+anchor_right = 1.0
+offset_left = 36.0
+offset_right = -6.0
+offset_bottom = 40.0
+text = "Container"
+align = 1
+vertical_alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Put" type="Button" parent="InventoryMenu/Panel/ContainerTransfer"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -59.5
+offset_right = 32.0
+offset_bottom = -29.5
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Take" type="Button" parent="InventoryMenu/Panel/ContainerTransfer"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -14.5
+offset_right = 32.0
+offset_bottom = 15.5
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Take All" type="Button" parent="InventoryMenu/Panel/ContainerTransfer"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = 31.5
+offset_right = 29.0
+offset_bottom = 61.5
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "<<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="InventoryMenu/Panel/ContainerTransfer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 40.0
+offset_right = -6.0
+offset_bottom = -10.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InventoryMenu/Panel/ContainerTransfer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryMenu/Panel/ContainerTransfer/Panel/ScrollContainer"]
+offset_right = 269.0
+offset_bottom = 453.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" parent="InventoryMenu/Panel/ContainerTransfer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+offset_right = 269.0
+
+[node name="CraftingMenu" type="Control" parent="." groups=[
+"load",
+]]
+visible = false
+self_modulate = Color( 0.172549, 0.172549, 0.172549, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 30 )
+
+[node name="BackgroundPanel" type="Panel" parent="CraftingMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+focus_mode = 2
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RecipeSelectionPanel" type="Panel" parent="CraftingMenu/BackgroundPanel"]
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 185.0
+offset_bottom = -4.0
+focus_mode = 2
+mouse_filter = 1
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CraftingMenu/BackgroundPanel/RecipeSelectionPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 41.0
+offset_right = 31.0
+pivot_offset = Vector2( -293.623, 201.003 )
+focus_mode = 2
+mouse_filter = 1
+size_flags_horizontal = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingMenu/BackgroundPanel/RecipeSelectionPanel/ScrollContainer"]
+offset_right = 200.0
+minimum_size = Vector2( 200, 0 )
+focus_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="CraftingMenu/BackgroundPanel/RecipeSelectionPanel"]
+anchor_right = 1.171
+offset_top = 1.0
+offset_right = -11.951
+offset_bottom = 36.0
+align = 1
+placeholder_text = "Search Recipes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RecipeVariationSelectionPanel" type="Panel" parent="CraftingMenu/BackgroundPanel"]
+anchor_bottom = 1.0
+offset_left = 219.0
+offset_top = 3.90552
+offset_right = 400.0
+offset_bottom = -3.09448
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CraftingMenu/BackgroundPanel/RecipeVariationSelectionPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_right = 31.0
+pivot_offset = Vector2( -293.623, 201.003 )
+size_flags_horizontal = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingMenu/BackgroundPanel/RecipeVariationSelectionPanel/ScrollContainer"]
+offset_right = 200.0
+minimum_size = Vector2( 200, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Search" type="LineEdit" parent="CraftingMenu/BackgroundPanel/RecipeVariationSelectionPanel"]
+anchor_right = 1.171
+offset_left = 1.43161
+offset_top = -0.905521
+offset_right = -11.5194
+offset_bottom = 34.0945
+align = 1
+placeholder_text = "Search Variations"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Details" type="Panel" parent="CraftingMenu/BackgroundPanel"]
+anchor_left = -0.006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 439.144
+offset_top = 3.0
+offset_right = -4.0
+offset_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RecipeTitle" type="Label" parent="CraftingMenu/BackgroundPanel/Details"]
+anchor_right = 1.0
+offset_bottom = 36.0
+text = "Recipe Name"
+align = 1
+vertical_alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="RichTextLabel" parent="CraftingMenu/BackgroundPanel/Details"]
+anchor_top = 0.002
+anchor_right = 1.0
+anchor_bottom = 0.857
+offset_left = 187.0
+offset_top = 46.894
+offset_bottom = 0.0789795
+text = "This is a recipe description"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Components" type="Panel" parent="CraftingMenu/BackgroundPanel/Details"]
+self_modulate = Color( 0.807843, 0.803922, 0.803922, 1 )
+anchor_top = -0.007
+anchor_bottom = 1.0
+offset_top = 44.871
+offset_right = 180.0
+offset_bottom = -79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CraftingMenu/BackgroundPanel/Details/Components"]
+anchor_right = 1.0
+offset_bottom = 39.0
+text = "Components needed :"
+align = 1
+vertical_alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="CraftingMenu/BackgroundPanel/Details/Components"]
+offset_left = 3.0
+offset_top = 37.0
+offset_right = 178.0
+offset_bottom = 431.0
+focus_mode = 0
+items = [ "Thing the first ( 1 ) ", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CraftButton" type="Button" parent="CraftingMenu/BackgroundPanel/Details"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 187.0
+offset_top = -74.0
+text = "CRAFT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="CraftingMenu/BackgroundPanel/Details"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -76.0
+offset_right = 180.0
+text = "1"
+align = 1
+placeholder_text = "Count"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" parent="CraftingMenu" instance=ExtResource( 37 )]
+
+[node name="Label" parent="CraftingMenu/Header" index="0"]
+text = "Crafting"
+
+[node name="StatusMenu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="StatusMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" parent="StatusMenu/Panel" instance=ExtResource( 37 )]
+
+[node name="Label" parent="StatusMenu/Panel/Header" index="0"]
+offset_left = -1.0
+text = "Status"
+
+[node name="Subheader" type="Panel" parent="StatusMenu/Panel"]
+self_modulate = Color( 0.498039, 0.498039, 0.498039, 1 )
+anchor_right = 1.0
+offset_top = 44.0
+offset_bottom = 77.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatusMenu/Panel/Subheader"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FocusPanel" type="NinePatchRect" parent="StatusMenu/Panel/Subheader/HBoxContainer"]
+offset_right = 333.0
+offset_bottom = 33.0
+minimum_size = Vector2( 50, 0 )
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+script = ExtResource( 4 )
+focus_color = Color( 0.345098, 0.345098, 0.345098, 1 )
+
+[node name="Label" type="Label" parent="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Stats"
+align = 1
+vertical_alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator" type="VSeparator" parent="StatusMenu/Panel/Subheader/HBoxContainer"]
+offset_left = 337.0
+offset_right = 341.0
+offset_bottom = 33.0
+
+[node name="FocusPanel2" type="NinePatchRect" parent="StatusMenu/Panel/Subheader/HBoxContainer"]
+offset_left = 345.0
+offset_right = 678.0
+offset_bottom = 33.0
+minimum_size = Vector2( 50, 0 )
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+script = ExtResource( 4 )
+focus_color = Color( 0.345098, 0.345098, 0.345098, 1 )
+focus_color_self = Color( 0.854902, 0.854902, 0.854902, 1 )
+
+[node name="Label" type="Label" parent="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Relationships"
+align = 1
+vertical_alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator2" type="VSeparator" parent="StatusMenu/Panel/Subheader/HBoxContainer"]
+offset_left = 682.0
+offset_right = 686.0
+offset_bottom = 33.0
+
+[node name="FocusPanel3" type="NinePatchRect" parent="StatusMenu/Panel/Subheader/HBoxContainer"]
+offset_left = 690.0
+offset_right = 1024.0
+offset_bottom = 33.0
+minimum_size = Vector2( 50, 0 )
+focus_mode = 2
+mouse_filter = 0
+size_flags_horizontal = 3
+script = ExtResource( 4 )
+focus_color = Color( 0.345098, 0.345098, 0.345098, 1 )
+focus_color_self = Color( 0.854902, 0.854902, 0.854902, 1 )
+
+[node name="Label" type="Label" parent="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Relationships"
+align = 1
+vertical_alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pages" type="Control" parent="StatusMenu/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 75.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatsPage" type="Control" parent="StatusMenu/Panel/Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatusMenu/Panel/Pages/StatsPage"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatsPanel_Mental" parent="StatusMenu/Panel/Pages/StatsPage/HBoxContainer" instance=ExtResource( 36 )]
+self_modulate = Color( 0, 2.33, 3.46, 0.28 )
+
+[node name="VSeparator" type="VSeparator" parent="StatusMenu/Panel/Pages/StatsPage/HBoxContainer"]
+offset_left = 506.0
+offset_right = 510.0
+offset_bottom = 517.0
+
+[node name="StatsPanel_Physical" parent="StatusMenu/Panel/Pages/StatsPage/HBoxContainer" instance=ExtResource( 36 )]
+self_modulate = Color( 2.32157, 0.678431, 0.678431, 0.4 )
+offset_left = 514.0
+offset_right = 1016.0
+
+[node name="RelationsPage" type="Control" parent="StatusMenu/Panel/Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" parent="StatusMenu/Panel/Pages/RelationsPage" instance=ExtResource( 22 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="AchievementsPage" type="Control" parent="StatusMenu/Panel/Pages"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+script = ExtResource( 24 )
+
+[node name="ScrollContainer" parent="StatusMenu/Panel/Pages/AchievementsPage" instance=ExtResource( 22 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="SaveMenu" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AutoFocusContainer" type="Control" parent="SaveMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -12.0
+clip_contents = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SaveMenu/AutoFocusContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 98.0
+offset_right = -22.0
+offset_bottom = -12.0
+size_flags_horizontal = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SaveMenu/AutoFocusContainer/ScrollContainer"]
+offset_right = 984.0
+clip_contents = true
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Panel" parent="SaveMenu/AutoFocusContainer"]
+anchor_right = 1.0
+offset_bottom = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PathInput" type="LineEdit" parent="SaveMenu/AutoFocusContainer/Header"]
+anchor_right = 1.0
+offset_left = 25.0
+offset_top = 21.0
+offset_right = -290.0
+offset_bottom = 78.0
+text = "user://autosave"
+align = 1
+script = ExtResource( 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Load" type="Button" parent="SaveMenu/AutoFocusContainer/Header"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -28.0
+offset_right = -159.0
+offset_bottom = 29.0
+text = "Load"
+
+[node name="Save" type="Button" parent="SaveMenu/AutoFocusContainer/Header"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -141.887
+offset_top = -28.0
+offset_right = -20.8866
+offset_bottom = 29.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContextMenu" type="Control" parent="."]
+visible = false
+offset_top = -0.0944824
+offset_bottom = -0.0944824
+script = ExtResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="ContextMenu"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30114.6
+offset_top = -20090.6
+offset_right = 27754.4
+offset_bottom = 20286.4
+mouse_filter = 1
+button_mask = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="ContextMenu"]
+offset_left = -0.273438
+offset_top = 0.378906
+offset_right = 213.727
+offset_bottom = 98.3789
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContextMenu/PanelContainer"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 207.0
+offset_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotificationSystem" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.273438
+offset_top = -0.0944824
+offset_right = -0.273438
+offset_bottom = -0.0944824
+mouse_filter = 2
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MouseMenu" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GenericScript" type="Node" parent="MouseMenu"]
+script = ExtResource( 33 )
+code = "var list = node.get_node('../List')
+if list.visible:
+	list.hide()
+else:
+	list.show()"
+
+[node name="List" type="Panel" parent="MouseMenu"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -157.0
+offset_top = -270.0
+offset_bottom = -43.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MouseMenu/List"]
+anchor_right = 1.0
+offset_bottom = 26.0
+text = "Inventory (I)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="MouseMenu/List"]
+anchor_right = 1.0
+offset_top = 28.0
+offset_bottom = 54.0
+text = "Quests (Q)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="MouseMenu/List"]
+anchor_right = 1.0
+offset_top = 56.3337
+offset_bottom = 82.3337
+text = "Crafting (R)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="MouseMenu/List"]
+anchor_right = 1.0
+offset_top = 83.8892
+offset_bottom = 109.889
+pivot_offset = Vector2( 143.4, 4.52142 )
+text = "Status (C)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button6" type="Button" parent="MouseMenu/List"]
+anchor_right = 1.0
+offset_top = 112.168
+offset_bottom = 138.168
+pivot_offset = Vector2( 143.4, 4.52142 )
+disabled = true
+text = "Abilities"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="Button" parent="MouseMenu/List"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+text = "Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="MouseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = -4.0
+offset_bottom = -27.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="MouseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 18.0826
+offset_right = -4.0
+offset_bottom = -15.9174
+mouse_filter = 1
+custom_styles/panel = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel4" type="Panel" parent="MouseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 28.0
+offset_right = -4.0
+offset_bottom = -6.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="DialogueSystem/DialogueBox/Timer_Skip" to="DialogueSystem" method="_on_Timer_Skip_timeout"]
+[connection signal="pressed" from="DialogueSystem/ClickCatcher" to="DialogueSystem" method="consider_next_page"]
+[connection signal="pressed" from="EscapeMenu/EscapeMenu/VBoxContainer/Continue" to="." method="toggle_main_menu"]
+[connection signal="pressed" from="EscapeMenu/EscapeMenu/VBoxContainer/SaveLoad" to="." method="toggle_save_menu"]
+[connection signal="pressed" from="EscapeMenu/EscapeMenu/VBoxContainer/Options" to="." method="toggle_options_menu"]
+[connection signal="pressed" from="EscapeMenu/EscapeMenu/VBoxContainer/Exit" to="." method="quit_game"]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/All" to="OptionsMenu" method="show_all"]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/Visuals" to="OptionsMenu" method="show_category" binds= [ "Visuals" ]]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/Audio" to="OptionsMenu" method="show_category" binds= [ "Audio" ]]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/Inputs" to="OptionsMenu" method="show_category" binds= [ "Inputs" ]]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/Game" to="OptionsMenu" method="show_category" binds= [ "Game" ]]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/Dialogue" to="OptionsMenu" method="show_category" binds= [ "Dialogue" ]]
+[connection signal="pressed" from="InventoryMenu/Panel/Inventory/NextPage" to="InventoryMenu" method="next_page"]
+[connection signal="pressed" from="InventoryMenu/Panel/Inventory/PrevPage" to="InventoryMenu" method="prev_page"]
+[connection signal="pressed" from="InventoryMenu/Panel/ContainerTransfer/Put" to="InventoryMenu/Panel/ContainerTransfer" method="transfer_from_inventory"]
+[connection signal="pressed" from="InventoryMenu/Panel/ContainerTransfer/Take" to="InventoryMenu/Panel/ContainerTransfer" method="transfer_to_inventory"]
+[connection signal="pressed" from="InventoryMenu/Panel/ContainerTransfer/Take All" to="InventoryMenu/Panel/ContainerTransfer" method="transfer_all"]
+[connection signal="focus_entered" from="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel" to="StatusMenu" method="change_page" binds= [ "StatsPage" ]]
+[connection signal="focus_entered" from="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel2" to="StatusMenu" method="change_page" binds= [ "RelationsPage" ]]
+[connection signal="focus_entered" from="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel3" to="StatusMenu" method="change_page" binds= [ "AchievementsPage" ]]
+[connection signal="pressed" from="SaveMenu/AutoFocusContainer/Header/Load" to="SaveMenu" method="load"]
+[connection signal="pressed" from="SaveMenu/AutoFocusContainer/Header/Save" to="SaveMenu" method="save"]
+[connection signal="pressed" from="ContextMenu/Button" to="ContextMenu" method="hide"]
+[connection signal="pressed" from="MouseMenu" to="MouseMenu/GenericScript" method="_run"]
+[connection signal="pressed" from="MouseMenu/List/Button" to="." method="toggle_inventory"]
+[connection signal="pressed" from="MouseMenu/List/Button2" to="." method="toggle_quest_menu"]
+[connection signal="pressed" from="MouseMenu/List/Button3" to="." method="toggle_crafting_menu"]
+[connection signal="pressed" from="MouseMenu/List/Button4" to="." method="toggle_status_menu"]
+[connection signal="pressed" from="MouseMenu/List/Button5" to="." method="toggle_main_menu"]
+
+[editable path="InventoryMenu/Panel/Header2"]
+
+[editable path="InventoryMenu/Panel/Inventory/GridContainer/InventorySlot"]
+
+[editable path="CraftingMenu/Header"]
+
+[editable path="StatusMenu/Panel/Header"]
+
+[editable path="StatusMenu/Panel/Pages/StatsPage/HBoxContainer/StatsPanel_Physical"]

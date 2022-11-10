@@ -1,0 +1,30 @@
+[gd_scene load_steps=11 format=3 uid="uid://cajr4blyqbvc0"]
+
+[ext_resource type="Script" path="res://Scripts/Interactibles/Door.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://bympgo50rn02u" path="res://Assets/Sounds/MySounds/door4.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://ct61hf6hm45av" path="res://Assets/Sounds/MySounds/door_locked_1.wav" id="3"]
+[ext_resource type="AudioStream" uid="uid://cx211jvgr4k5e" path="res://Assets/Sounds/MySounds/door_locked_2.wav" id="4"]
+[ext_resource type="AudioStream" uid="uid://buvvvfgnkqqhw" path="res://Assets/Sounds/MySounds/door_locked_3.wav" id="5"]
+[ext_resource type="AudioStream" uid="uid://ca56jlnoc7d3v" path="res://Assets/Sounds/MySounds/door3.wav" id="6"]
+[ext_resource type="AudioStream" uid="uid://b3gm8ggkfmj6g" path="res://Assets/Sounds/MySounds/door2.wav" id="7"]
+[ext_resource type="AudioStream" uid="uid://bdnfx37oktilr" path="res://Assets/Sounds/MySounds/door1.wav" id="8"]
+[ext_resource type="AudioStream" uid="uid://d4qihv4pp5m5" path="res://Assets/Sounds/MySounds/door_locked_4.wav" id="9"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(34.8902, 9.55102)
+
+[node name="Door" type="Area2D"]
+position = Vector2(638.856, 293.957)
+collision_layer = 524288
+collision_mask = 524288
+script = ExtResource("1")
+failure_dialogue = "door_locked"
+_failure_sound = [ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("9")]
+_interact_sound = [ExtResource("8"), ExtResource("7"), ExtResource("6"), ExtResource("2")]
+
+[node name="Area3D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0507221, 21.414)
+shape = SubResource("1")
+
+[node name="Target" type="Node2D" parent="."]
+position = Vector2(-0.662718, -24.2142)

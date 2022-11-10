@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://mp2n02fvtal6"]
+
+[node name="Tooltip_L" type="Panel"]
+self_modulate = Color(0.501961, 0.501961, 0.501961, 1)
+anchors_preset = -1
+anchor_right = 0.273
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 58.0
+offset_right = 0.447998
+offset_bottom = -23.0
+
+[node name="Background" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 14.0
+grow_horizontal = 2
+text = "Title"
+vertical_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 44.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Lorem ipsum"

@@ -1,0 +1,2591 @@
+[gd_scene load_steps=57 format=3 uid="uid://xp80pipsyql8"]
+
+[ext_resource type="Script" path="res://Scripts/UI/DialogueBox.gd" id="1"]
+[ext_resource type="Script" path="res://Scripts/UI/ChoiceButton.gd" id="2"]
+[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="3"]
+[ext_resource type="Script" path="res://Scripts/UI/AutoFocusContainer.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://d1067o52pk7a7" path="res://Assets/Images/UI/UI_DialogueBox2.svg" id="5"]
+[ext_resource type="Theme" uid="uid://bvhtm0u4e0a0i" path="res://Assets/Fonts/godot/UncialAntiqua-Regular.theme" id="6"]
+[ext_resource type="Script" path="res://Scripts/UI/SaveMenu.gd" id="7"]
+[ext_resource type="Script" path="res://Scripts/UI/QuestMenu.gd" id="8"]
+[ext_resource type="Script" path="res://Scripts/UI/PoorTextLabel.gd" id="9"]
+[ext_resource type="PackedScene" uid="uid://dxj6ge6umvtnv" path="res://Prefabs/UI/UI_Header.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://lhij55pqhbif" path="res://Prefabs/UI/UI_InventorySlot.tscn" id="11"]
+[ext_resource type="Script" path="res://Scripts/UI/InventoryMenu.gd" id="12"]
+[ext_resource type="Script" path="res://Scripts/UI/MyLineEdit.gd" id="13"]
+[ext_resource type="Script" path="res://Scripts/UI/ContextMenu.gd" id="14"]
+[ext_resource type="Script" path="res://Scripts/UI/PanelContainerPlus.gd" id="15"]
+[ext_resource type="Script" path="res://Scripts/UI/OptionsMenu.gd" id="16"]
+[ext_resource type="Script" path="res://Scripts/UI/UI_GlobalValueSetter.gd" id="17"]
+[ext_resource type="Script" path="res://Scripts/UI/JSON_Sprite.gd" id="18"]
+[ext_resource type="Script" path="res://Scripts/UI/EnvelopeContainer.gd" id="19"]
+[ext_resource type="Script" path="res://Scripts/UI/NotificationSystem.gd" id="20"]
+[ext_resource type="Script" path="res://Scripts/GenericScript.gd" id="21"]
+[ext_resource type="PackedScene" uid="uid://d17lf15pvp5bm" path="res://Prefabs/UI/UI_InventoryTransferItem.tscn" id="22"]
+[ext_resource type="Script" path="res://Scripts/UI/Transitioner.gd" id="23"]
+[ext_resource type="Script" path="res://Scripts/UI/UI_ContainerTransfer.gd" id="24"]
+[ext_resource type="Script" path="res://Scripts/UI/UI_FadeOutPanel.gd" id="25"]
+[ext_resource type="Script" path="res://Scripts/UI/EscapeMenu.gd" id="26"]
+[ext_resource type="Script" path="res://Scripts/UI/CraftingMenu.gd" id="28"]
+[ext_resource type="Script" path="res://Scripts/UI/TransitionerTarget.gd" id="29"]
+[ext_resource type="Script" path="res://Scripts/UI/StatusPanel.gd" id="30"]
+[ext_resource type="Script" path="res://Scripts/UI/SelectionList.gd" id="31"]
+[ext_resource type="Script" path="res://Scripts/UI/FocusPanel.gd" id="32"]
+[ext_resource type="Script" path="res://Scripts/UI/StatsPage.gd" id="33"]
+[ext_resource type="PackedScene" uid="uid://b44hnys5653i" path="res://Prefabs/UI/UI_Stats_Panel.tscn" id="34"]
+[ext_resource type="Script" path="res://Scripts/UI/RelationsPage.gd" id="35"]
+[ext_resource type="PackedScene" uid="uid://d2cslmxfkgrvx" path="res://Prefabs/UI/UI_Scrollable_Table.tscn" id="36"]
+[ext_resource type="Script" path="res://Scripts/UI/AchievementsPage.gd" id="37"]
+[ext_resource type="Script" path="res://Scripts/UI/ScaleChildrenToFitContainer.gd" id="38"]
+[ext_resource type="Shader" path="res://Resources/Materials/Shaders/SE_Timetravel.gdshader" id="39"]
+[ext_resource type="Script" path="res://Scripts/UI/ScreenEffects/SE_Timetravel.gd" id="40"]
+[ext_resource type="Script" path="res://Scripts/UI/ScreenEffects/ScreenEffectManager.gd" id="41"]
+[ext_resource type="PackedScene" uid="uid://bempwgacspfvi" path="res://Prefabs/UI/UI_SkillTree.tscn" id="43"]
+[ext_resource type="Script" path="res://Scripts/UI/SkillMenu.gd" id="44"]
+[ext_resource type="PackedScene" uid="uid://mp2n02fvtal6" path="res://Prefabs/UI/UI_InventoryTooltip.tscn" id="46"]
+[ext_resource type="Texture2D" uid="uid://bmnmr3av7fjch" path="res://Assets/Images/Digital-Patreon-Wordmark_White.png" id="47"]
+[ext_resource type="Script" path="res://Scripts/UI/UI_InteractionMessage.gd" id="49"]
+[ext_resource type="Texture2D" uid="uid://dskyjxw0dut8s" path="res://Assets/Images/sneaking_symbol.svg" id="50"]
+[ext_resource type="Texture2D" uid="uid://h0lu0rmnd1o6" path="res://Assets/Images/UI/UI_DialogueBox_Medium.svg" id="52"]
+[ext_resource type="Script" path="res://Scripts/UI/WaitMenu.gd" id="53"]
+
+[sub_resource type="ShaderMaterial" id="1"]
+shader = ExtResource("39")
+shader_parameter/position = null
+shader_parameter/strength = 5.0
+
+[sub_resource type="Resource" id="3"]
+script = ExtResource("29")
+target = NodePath("..")
+variable_name = "modulate.a"
+value_hidden = 0.0
+value_shown = 1.0
+
+[sub_resource type="Resource" id="4"]
+script = ExtResource("29")
+target = NodePath("../DialogueBox")
+variable_name = "offset_top"
+value_hidden = 0.0
+value_shown = -156.0
+
+[sub_resource type="Resource" id="5"]
+script = ExtResource("29")
+target = NodePath("../Character_Left")
+variable_name = "position.x"
+value_hidden = -200.0
+value_shown = 0.0
+
+[sub_resource type="Resource" id="6"]
+script = ExtResource("29")
+target = NodePath("../Character_Left")
+variable_name = "modulate.a"
+value_hidden = 0.0
+value_shown = 1.0
+
+[sub_resource type="Resource" id="7"]
+script = ExtResource("29")
+target = NodePath("../Centered_Image")
+variable_name = "modulate.a"
+value_hidden = 0.0
+value_shown = 1.0
+
+[sub_resource type="Resource" id="8"]
+script = ExtResource("29")
+target = NodePath("../Character_Right")
+variable_name = "position.x"
+value_hidden = 200.0
+value_shown = 0.0
+
+[sub_resource type="Resource" id="9"]
+script = ExtResource("29")
+target = NodePath("../Character_Right")
+variable_name = "modulate.a"
+value_hidden = 0.0
+value_shown = 1.0
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("3")
+
+[node name="StealthSymbol" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(0.811765, 0.843137, 0.909804, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.5
+offset_top = 40.0
+offset_right = 49.5
+offset_bottom = 87.0
+grow_horizontal = 2
+texture = ExtResource("50")
+
+[node name="ScreenEffectManager" type="Node" parent="."]
+script = ExtResource("41")
+
+[node name="TimeTravel" type="ColorRect" parent="ScreenEffectManager"]
+visible = false
+material = SubResource("1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("40")
+
+[node name="FadePanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("25")
+
+[node name="DialogueSystem" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1")
+
+[node name="Transitioner_DialogueSystem" type="Control" parent="DialogueSystem"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(15, 15)
+script = ExtResource("23")
+targets = [SubResource("3"), SubResource("4")]
+transition_time = 0.5
+funcion = "return 1 - pow(1-x,4)"
+current_value = 1.0
+
+[node name="ScaleChildrenToFitContainer" type="Container" parent="DialogueSystem"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("38")
+centered = true
+
+[node name="Panel" type="Panel" parent="DialogueSystem/ScaleChildrenToFitContainer"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -2.67029e-05
+offset_top = 12.0
+offset_right = 1920.0
+offset_bottom = 1092.0
+scale = Vector2(0.533333, 0.533333)
+
+[node name="Panel2" type="Panel" parent="DialogueSystem/ScaleChildrenToFitContainer/Panel"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -4205.0
+offset_top = -3612.0
+offset_right = 15800.0
+offset_bottom = 3173.0
+scale = Vector2(0.532418, 0.532418)
+
+[node name="Panel3" type="Panel" parent="DialogueSystem/ScaleChildrenToFitContainer/Panel"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -4939.0
+offset_top = 1080.0
+offset_right = 17081.0
+offset_bottom = 7648.0
+scale = Vector2(0.532418, 0.532418)
+
+[node name="Panel4" type="Panel" parent="DialogueSystem/ScaleChildrenToFitContainer/Panel"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -5784.0
+offset_top = -3934.0
+offset_right = 5079.0
+offset_bottom = 13007.0
+scale = Vector2(0.532418, 0.532418)
+
+[node name="Panel5" type="Panel" parent="DialogueSystem/ScaleChildrenToFitContainer/Panel"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1918.0
+offset_top = -4540.0
+offset_right = 15650.0
+offset_bottom = 15342.0
+scale = Vector2(0.532418, 0.532418)
+
+[node name="Canvas" type="Control" parent="DialogueSystem"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Transitioner_Left" type="Control" parent="DialogueSystem/Canvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 212.0
+offset_right = 252.0
+offset_bottom = 40.0
+scale = Vector2(15, 15)
+script = ExtResource("23")
+targets = [SubResource("5"), SubResource("6")]
+transition_time = 0.3
+
+[node name="Transitioner_Center" type="Control" parent="DialogueSystem/Canvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 212.0
+offset_right = 252.0
+offset_bottom = 40.0
+scale = Vector2(15, 15)
+script = ExtResource("23")
+targets = [SubResource("7")]
+transition_time = 0.3
+
+[node name="Transitioner_Right" type="Control" parent="DialogueSystem/Canvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 212.0
+offset_right = 252.0
+offset_bottom = 40.0
+scale = Vector2(15, 15)
+script = ExtResource("23")
+targets = [SubResource("8"), SubResource("9")]
+transition_time = 0.3
+funcion = "return 1 - pow(1-x,4)"
+current_value = 1.0
+
+[node name="Centered_Image" type="Container" parent="DialogueSystem/Canvas"]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 15
+size_flags_vertical = 15
+script = ExtResource("18")
+path = "res://images/RenderOutput/Tome/Open/Open/Tome_Open_Open_Default.json"
+centered = true
+
+[node name="OffsetContainer" type="Container" parent="DialogueSystem/Canvas/Centered_Image"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -513.5
+offset_top = -288.844
+offset_right = 3326.5
+offset_bottom = 1871.16
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.267448, 0.267448)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Character_Right" type="Container" parent="DialogueSystem/Canvas"]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+script = ExtResource("18")
+path = "res://images/RenderOutput/Tome/Default/Default/Tome_Default_Default_Default.json"
+mirrored = true
+centered = true
+
+[node name="OffsetContainer" type="Container" parent="DialogueSystem/Canvas/Character_Right"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -288.0
+offset_right = 3328.0
+offset_bottom = 1872.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.266667, 0.266667)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Character_Left" type="Container" parent="DialogueSystem/Canvas"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 15
+size_flags_vertical = 15
+script = ExtResource("18")
+path = "res://images/RenderOutput/Lily/Frontal/Default/Lily_Frontal_Default_Default.json"
+centered = true
+
+[node name="OffsetContainer" type="Container" parent="DialogueSystem/Canvas/Character_Left"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -513.5
+offset_top = -288.844
+offset_right = 3326.5
+offset_bottom = 1871.16
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.267448, 0.267448)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="DialogueBox" type="NinePatchRect" parent="DialogueSystem"]
+modulate = Color(0.996078, 0.996078, 1, 1)
+self_modulate = Color(0.0705882, 0.0705882, 0.0705882, 1)
+anchors_preset = -1
+anchor_top = 0.912
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -103.2
+offset_right = -20.0
+offset_bottom = -12.0
+texture = ExtResource("5")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="DialogueContent" type="RichTextLabel" parent="DialogueSystem/DialogueBox"]
+anchors_preset = -1
+anchor_left = 0.003
+anchor_top = 0.024
+anchor_right = 0.997
+anchor_bottom = 0.975
+offset_left = 17.424
+offset_top = 16.566
+offset_right = -16.288
+offset_bottom = -15.994
+text = "This is a test content that is very long so as to break line and do other interesting stuff that is also very long."
+script = ExtResource("9")
+resized_text = "[font size=20]This is a test content that[/font] is very long so as to break line and do other interesting stuff that is also very long."
+
+[node name="ColorRect2" type="ColorRect" parent="DialogueSystem/DialogueBox"]
+anchors_preset = -1
+anchor_top = 0.014
+anchor_bottom = 0.014
+offset_left = 1.2766
+offset_top = -36.934
+offset_right = 153.277
+offset_bottom = 0.0660007
+color = Color(0, 0, 0, 1)
+
+[node name="NameLabel" type="Label" parent="DialogueSystem/DialogueBox/ColorRect2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -14.5
+offset_right = 56.5
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test Label"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer_Next_Letter" type="Timer" parent="DialogueSystem/DialogueBox"]
+wait_time = 0.05
+autostart = true
+
+[node name="Timer_Skip" type="Timer" parent="DialogueSystem/DialogueBox"]
+wait_time = 0.005
+autostart = true
+
+[node name="ClickCatcher" type="Button" parent="DialogueSystem"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+
+[node name="ChoiceButtons" type="Container" parent="DialogueSystem"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4")
+
+[node name="ChoiceButton" type="Button" parent="DialogueSystem/ChoiceButtons"]
+offset_left = 436.433
+offset_top = 282.973
+offset_right = 584.433
+offset_bottom = 313.973
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2")
+
+[node name="InteractionMessage" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_top = 0.657
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -21.8663
+offset_right = -1.0
+offset_bottom = -205.666
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "test"
+script = ExtResource("49")
+
+[node name="SkillMenu" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("44")
+
+[node name="Panel" type="Panel" parent="SkillMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header2" parent="SkillMenu/Panel" instance=ExtResource("10")]
+offset_top = -0.0944824
+offset_bottom = 39.9055
+
+[node name="Label" parent="SkillMenu/Panel/Header2" index="0"]
+text = "Spells & Skills"
+
+[node name="Clock" parent="SkillMenu/Panel/Header2" index="1"]
+offset_left = -41.0
+offset_right = 0.0
+
+[node name="Button" parent="SkillMenu/Panel/Header2" index="2"]
+offset_right = 18.0
+offset_bottom = 0.0
+
+[node name="Clock_Symbol" parent="SkillMenu/Panel/Header2" index="3"]
+offset_left = -16.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Page" type="Panel" parent="SkillMenu/Panel"]
+self_modulate = Color(0.380392, 0.380392, 0.380392, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.06588
+offset_top = 48.0
+offset_right = -7.93414
+offset_bottom = -7.34119
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Details" type="Panel" parent="SkillMenu/Panel/Page"]
+anchors_preset = -1
+anchor_right = 0.333
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 0.0640259
+offset_bottom = -8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SkillMenu/Panel/Page/Details"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="SkillMenu/Panel/Page/Details/VBoxContainer"]
+offset_right = 319.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+text = "Header"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SkillMenu/Panel/Page/Details/VBoxContainer"]
+self_modulate = Color(0.596078, 0.596078, 0.596078, 1)
+offset_top = 44.0
+offset_right = 319.0
+offset_bottom = 520.0
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Test 123"
+
+[node name="SkillList" type="Panel" parent="SkillMenu/Panel/Page"]
+anchors_preset = -1
+anchor_left = 0.333
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SkillMenu/Panel/Page/SkillList"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SkillMenu/Panel/Page/SkillList/VBoxContainer"]
+visible = false
+offset_right = 640.0
+offset_bottom = 100.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="SkillTree" parent="SkillMenu/Panel/Page/SkillList/VBoxContainer/HBoxContainer" instance=ExtResource("43")]
+offset_left = 110.0
+offset_right = 530.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SkillMenu/Panel/Page/SkillList/VBoxContainer"]
+visible = false
+offset_right = 640.0
+offset_bottom = 100.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="SkillTree" parent="SkillMenu/Panel/Page/SkillList/VBoxContainer/HBoxContainer2" instance=ExtResource("43")]
+offset_left = 110.0
+offset_right = 530.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="SkillMenu/Panel/Page/SkillList/VBoxContainer"]
+visible = false
+offset_right = 640.0
+offset_bottom = 100.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="SkillTree" parent="SkillMenu/Panel/Page/SkillList/VBoxContainer/HBoxContainer3" instance=ExtResource("43")]
+offset_left = 110.0
+offset_right = 530.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="EscapeMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("26")
+
+[node name="EscapeMenu" type="Panel" parent="EscapeMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EscapeMenu/EscapeMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.0
+offset_top = -300.0
+offset_right = 317.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Continue" type="Button" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 242.0
+offset_right = 634.0
+offset_bottom = 262.0
+text = "Continue"
+
+[node name="HSeparator" type="HSeparator" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 266.0
+offset_right = 634.0
+offset_bottom = 270.0
+
+[node name="SaveLoad" type="Button" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 274.0
+offset_right = 634.0
+offset_bottom = 294.0
+text = "Savegames"
+
+[node name="HSeparator3" type="HSeparator" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 298.0
+offset_right = 634.0
+offset_bottom = 302.0
+
+[node name="Options" type="Button" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 306.0
+offset_right = 634.0
+offset_bottom = 326.0
+text = "Options"
+
+[node name="HSeparator2" type="HSeparator" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 330.0
+offset_right = 634.0
+offset_bottom = 334.0
+
+[node name="Exit" type="Button" parent="EscapeMenu/EscapeMenu/VBoxContainer"]
+offset_top = 338.0
+offset_right = 634.0
+offset_bottom = 358.0
+text = "Quit game"
+
+[node name="Button" type="Button" parent="EscapeMenu"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -199.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 99.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+
+[node name="GenericScript" type="Node" parent="EscapeMenu/Button"]
+script = ExtResource("21")
+code = "OS.shell_open(\"https://www.patreon.com/pontiff_pomelo\")"
+
+[node name="Label" type="Label" parent="EscapeMenu/Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 6.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Support me checked"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EscapeMenu/Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="EscapeMenu/Button/HBoxContainer"]
+modulate = Color(1, 0.415686, 0.415686, 1)
+offset_right = 186.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("47")
+stretch_mode = 5
+
+[node name="QuestMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0944824
+offset_bottom = -0.0944824
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8")
+
+[node name="Background" type="Panel" parent="QuestMenu"]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AutoFocusContainer" type="Control" parent="QuestMenu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4")
+depth_first = true
+
+[node name="Filter" type="Panel" parent="QuestMenu/AutoFocusContainer"]
+offset_left = 4.0
+offset_top = 44.0
+offset_right = 207.0
+offset_bottom = 77.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuestMenu/AutoFocusContainer/Filter"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Ongoing" type="Button" parent="QuestMenu/AutoFocusContainer/Filter/HBoxContainer"]
+offset_left = 34.0
+offset_right = 99.0
+offset_bottom = 25.0
+toggle_mode = true
+text = "Ongoing"
+
+[node name="UI_GlobalValueSetter6" type="Node" parent="QuestMenu/AutoFocusContainer/Filter/HBoxContainer/Ongoing"]
+script = ExtResource("17")
+
+[node name="Finished" type="Button" parent="QuestMenu/AutoFocusContainer/Filter/HBoxContainer"]
+offset_left = 103.0
+offset_right = 169.0
+offset_bottom = 25.0
+toggle_mode = true
+text = "Finished"
+
+[node name="UI_GlobalValueSetter7" type="Node" parent="QuestMenu/AutoFocusContainer/Filter/HBoxContainer/Finished"]
+script = ExtResource("17")
+
+[node name="List" type="Panel" parent="QuestMenu/AutoFocusContainer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 81.0
+offset_right = 207.0
+offset_bottom = -4.0
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="QuestMenu/AutoFocusContainer/List"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuestMenu/AutoFocusContainer/List/ScrollContainer"]
+offset_right = 195.0
+size_flags_horizontal = 3
+
+[node name="Content" type="Panel" parent="QuestMenu/AutoFocusContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 211.0
+offset_top = 44.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuestMenu/AutoFocusContainer/Content"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="QuestMenu/AutoFocusContainer/Content/VBoxContainer"]
+offset_right = 789.0
+offset_bottom = 80.0
+size_flags_horizontal = 13
+size_flags_vertical = 13
+theme = ExtResource("6")
+
+[node name="HSeparator" type="HSeparator" parent="QuestMenu/AutoFocusContainer/Content/VBoxContainer"]
+offset_top = 84.0
+offset_right = 789.0
+offset_bottom = 88.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="QuestMenu/AutoFocusContainer/Content/VBoxContainer"]
+offset_top = 92.0
+offset_right = 789.0
+offset_bottom = 548.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Description" type="RichTextLabel" parent="QuestMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer"]
+offset_right = 789.0
+offset_bottom = 456.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+script = ExtResource("9")
+resized_text = ""
+
+[node name="Header" parent="QuestMenu/AutoFocusContainer" instance=ExtResource("10")]
+offset_bottom = 0.0
+
+[node name="OptionsMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0944824
+offset_bottom = -0.0944824
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16")
+
+[node name="Background" type="Panel" parent="OptionsMenu"]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AutoFocusContainer" type="Control" parent="OptionsMenu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List" type="Panel" parent="OptionsMenu/AutoFocusContainer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 44.0
+offset_right = 207.0
+offset_bottom = -4.0
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="OptionsMenu/AutoFocusContainer/List"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer"]
+offset_right = 195.0
+offset_bottom = 206.0
+size_flags_horizontal = 3
+
+[node name="All" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_right = 195.0
+offset_bottom = 20.0
+text = "All"
+
+[node name="Visuals" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_top = 24.0
+offset_right = 195.0
+offset_bottom = 44.0
+text = "Visuals"
+
+[node name="Audio" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_top = 48.0
+offset_right = 195.0
+offset_bottom = 68.0
+text = "Audio"
+
+[node name="Inputs" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_top = 72.0
+offset_right = 195.0
+offset_bottom = 92.0
+text = "Inputs"
+
+[node name="Game" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_top = 96.0
+offset_right = 195.0
+offset_bottom = 116.0
+text = "Game"
+
+[node name="Dialogue" type="Button" parent="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer"]
+offset_top = 120.0
+offset_right = 195.0
+offset_bottom = 140.0
+text = "Dialogue"
+
+[node name="Header" parent="OptionsMenu/AutoFocusContainer" instance=ExtResource("10")]
+offset_bottom = 0.0
+
+[node name="Content" type="Panel" parent="OptionsMenu/AutoFocusContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 211.0
+offset_top = 44.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer"]
+offset_right = 793.0
+offset_bottom = 544.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VSplitContainer2" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer"]
+offset_right = 793.0
+offset_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Visuals" type="HSplitContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2"]
+offset_right = 793.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+dragger_visibility = 1
+
+[node name="Labels" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Visuals"]
+offset_right = 111.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="World3D Scale" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Visuals/Labels"]
+offset_right = 75.0
+offset_bottom = 40.0
+text = "World3D Scale"
+
+[node name="Inputs" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Visuals"]
+offset_left = 123.0
+offset_right = 793.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Visuals/Inputs"]
+offset_right = 706.0
+offset_bottom = 40.0
+
+[node name="UI_GlobalValueSetter5" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Visuals/Inputs/OptionButton"]
+script = ExtResource("17")
+
+[node name="Audio" type="HSplitContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2"]
+offset_top = 44.0
+offset_right = 793.0
+offset_bottom = 172.0
+size_flags_horizontal = 3
+dragger_visibility = 1
+
+[node name="VSplitContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio"]
+offset_right = 118.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Master Volume Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer"]
+offset_right = 97.0
+offset_bottom = 40.0
+text = "Master Volume"
+
+[node name="Music Volume Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer"]
+offset_top = 44.0
+offset_right = 97.0
+offset_bottom = 84.0
+text = "Music Volume"
+
+[node name="FX Volume Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer"]
+offset_top = 88.0
+offset_right = 97.0
+offset_bottom = 128.0
+text = "FX Volume"
+
+[node name="VSplitContainer2" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio"]
+offset_left = 130.0
+offset_right = 793.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="Master Volume" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2"]
+offset_right = 684.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 5.0
+step = 0.1
+
+[node name="UI_GlobalValueSetter" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2/Master Volume"]
+script = ExtResource("17")
+
+[node name="Music Volume" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2"]
+offset_top = 44.0
+offset_right = 684.0
+offset_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 5.0
+step = 0.1
+
+[node name="UI_GlobalValueSetter" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2/Music Volume"]
+script = ExtResource("17")
+
+[node name="FX Volume" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2"]
+offset_top = 88.0
+offset_right = 684.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 5.0
+step = 0.1
+
+[node name="UI_GlobalValueSetter" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Audio/VSplitContainer2/FX Volume"]
+script = ExtResource("17")
+
+[node name="Game" type="HSplitContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2"]
+offset_top = 176.0
+offset_right = 793.0
+offset_bottom = 216.0
+size_flags_horizontal = 3
+dragger_visibility = 1
+
+[node name="VSplitContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Game"]
+offset_right = 216.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="CameraMovementDelay Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Game/VSplitContainer"]
+offset_right = 161.0
+offset_bottom = 40.0
+text = "Camera3D Movement Delay"
+
+[node name="VSplitContainer2" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Game"]
+offset_left = 228.0
+offset_right = 793.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="Camera3D Movement Delay Slider" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Game/VSplitContainer2"]
+offset_right = 620.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="UI_GlobalValueSetter" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Game/VSplitContainer2/Camera3D Movement Delay Slider"]
+script = ExtResource("17")
+
+[node name="Dialogue" type="HSplitContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2"]
+offset_top = 220.0
+offset_right = 793.0
+offset_bottom = 348.0
+size_flags_horizontal = 3
+dragger_visibility = 1
+
+[node name="VSplitContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue"]
+offset_right = 157.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Skip Unread Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer"]
+offset_right = 129.0
+offset_bottom = 40.0
+text = "Skip Unread"
+
+[node name="Label3" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer"]
+offset_top = 44.0
+offset_right = 129.0
+offset_bottom = 84.0
+text = "Text Skip speed"
+
+[node name="Label2" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer"]
+offset_top = 88.0
+offset_right = 129.0
+offset_bottom = 128.0
+text = "Text playback speed"
+
+[node name="VSplitContainer2" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue"]
+offset_left = 169.0
+offset_right = 793.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="Skip Unread Toggle" type="CheckButton" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2"]
+offset_right = 652.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="UI_GlobalValueSetter4" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2/Skip Unread Toggle"]
+script = ExtResource("17")
+
+[node name="Skip Speed Slider" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2"]
+offset_top = 44.0
+offset_right = 652.0
+offset_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="UI_GlobalValueSetter2" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2/Skip Speed Slider"]
+script = ExtResource("17")
+
+[node name="Playback Slider" type="HSlider" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2"]
+offset_top = 88.0
+offset_right = 652.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+
+[node name="UI_GlobalValueSetter3" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Dialogue/VSplitContainer2/Playback Slider"]
+script = ExtResource("17")
+
+[node name="Inputs" type="HSplitContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2"]
+offset_top = 352.0
+offset_right = 793.0
+offset_bottom = 392.0
+size_flags_horizontal = 3
+dragger_visibility = 1
+
+[node name="VSplitContainer" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Inputs"]
+offset_right = 96.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Label" type="Label" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Inputs/VSplitContainer"]
+offset_right = 78.0
+offset_bottom = 40.0
+text = "Alwyas dash"
+
+[node name="VSplitContainer2" type="VBoxContainer" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Inputs"]
+offset_left = 108.0
+offset_right = 793.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="Always Dash Toggle" type="CheckButton" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Inputs/VSplitContainer2"]
+offset_right = 703.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="UI_GlobalValueSetter4" type="Node" parent="OptionsMenu/AutoFocusContainer/Content/VBoxContainer/ScrollContainer/VSplitContainer2/Inputs/VSplitContainer2/Always Dash Toggle"]
+script = ExtResource("17")
+
+[node name="InventoryMenu" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12")
+
+[node name="Panel" type="Panel" parent="InventoryMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header2" parent="InventoryMenu/Panel" instance=ExtResource("10")]
+offset_top = -0.0944824
+offset_bottom = 39.9055
+
+[node name="Label" parent="InventoryMenu/Panel/Header2" index="0"]
+text = "Inventory"
+
+[node name="Clock" parent="InventoryMenu/Panel/Header2" index="1"]
+offset_left = -41.0
+offset_right = 0.0
+
+[node name="Button" parent="InventoryMenu/Panel/Header2" index="2"]
+offset_right = 18.0
+offset_bottom = 0.0
+
+[node name="Clock_Symbol" parent="InventoryMenu/Panel/Header2" index="3"]
+offset_left = -16.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Inventory" type="Panel" parent="InventoryMenu/Panel"]
+self_modulate = Color(0.380392, 0.380392, 0.380392, 1)
+anchors_preset = -1
+anchor_right = 0.66
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 58.0
+offset_right = 0.159973
+offset_bottom = -24.0
+
+[node name="GridContainer" type="GridContainer" parent="InventoryMenu/Panel/Inventory"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.002
+offset_left = 6.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -43.0361
+size_flags_vertical = 3
+columns = 5
+
+[node name="InventorySlot" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 143.0
+offset_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="VBoxContainer" parent="InventoryMenu/Panel/Inventory/GridContainer/InventorySlot" index="0"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="TextureRect" parent="InventoryMenu/Panel/Inventory/GridContainer/InventorySlot/VBoxContainer" index="0"]
+offset_right = 143.0
+offset_bottom = 71.0
+
+[node name="Label" parent="InventoryMenu/Panel/Inventory/GridContainer/InventorySlot/VBoxContainer" index="1"]
+offset_top = 75.0
+offset_right = 143.0
+offset_bottom = 101.0
+
+[node name="InventorySlot2" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 147.0
+offset_right = 290.0
+offset_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot3" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 294.0
+offset_right = 437.0
+offset_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot4" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 441.0
+offset_right = 584.0
+offset_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot5" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 588.0
+offset_right = 731.0
+offset_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot10" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 105.0
+offset_right = 143.0
+offset_bottom = 206.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot9" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 147.0
+offset_top = 105.0
+offset_right = 290.0
+offset_bottom = 206.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot8" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 294.0
+offset_top = 105.0
+offset_right = 437.0
+offset_bottom = 206.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot7" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 441.0
+offset_top = 105.0
+offset_right = 584.0
+offset_bottom = 206.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot6" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 588.0
+offset_top = 105.0
+offset_right = 731.0
+offset_bottom = 206.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot15" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 210.0
+offset_right = 143.0
+offset_bottom = 311.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot14" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 147.0
+offset_top = 210.0
+offset_right = 290.0
+offset_bottom = 311.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot13" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 294.0
+offset_top = 210.0
+offset_right = 437.0
+offset_bottom = 311.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot12" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 441.0
+offset_top = 210.0
+offset_right = 584.0
+offset_bottom = 311.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot11" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 588.0
+offset_top = 210.0
+offset_right = 731.0
+offset_bottom = 311.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot20" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 315.0
+offset_right = 143.0
+offset_bottom = 415.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot19" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 147.0
+offset_top = 315.0
+offset_right = 290.0
+offset_bottom = 415.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot18" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 294.0
+offset_top = 315.0
+offset_right = 437.0
+offset_bottom = 415.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot17" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 441.0
+offset_top = 315.0
+offset_right = 584.0
+offset_bottom = 415.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot16" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 588.0
+offset_top = 315.0
+offset_right = 731.0
+offset_bottom = 415.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot25" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 419.0
+offset_right = 143.0
+offset_bottom = 519.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot24" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 147.0
+offset_top = 419.0
+offset_right = 290.0
+offset_bottom = 519.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot23" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 294.0
+offset_top = 419.0
+offset_right = 437.0
+offset_bottom = 519.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot22" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 441.0
+offset_top = 419.0
+offset_right = 584.0
+offset_bottom = 519.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="InventorySlot21" parent="InventoryMenu/Panel/Inventory/GridContainer" instance=ExtResource("11")]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 588.0
+offset_top = 419.0
+offset_right = 731.0
+offset_bottom = 519.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+mouse_filter = 0
+
+[node name="NextPage" type="Button" parent="InventoryMenu/Panel/Inventory"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49.6323
+offset_top = -28.5992
+offset_right = -7.63226
+offset_bottom = -8.59924
+grow_horizontal = 0
+grow_vertical = 0
+text = "Next"
+
+[node name="PrevPage" type="Button" parent="InventoryMenu/Panel/Inventory"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -154.134
+offset_top = -28.5992
+offset_right = -112.134
+offset_bottom = -8.59924
+grow_horizontal = 0
+grow_vertical = 0
+text = "Prev"
+
+[node name="PageNumber" type="Label" parent="InventoryMenu/Panel/Inventory"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.134
+offset_top = -28.5992
+offset_right = -50.134
+offset_bottom = -8.59924
+grow_horizontal = 0
+grow_vertical = 0
+text = "1/10"
+
+[node name="Equipment" type="Panel" parent="InventoryMenu/Panel"]
+self_modulate = Color(0.380392, 0.380392, 0.380392, 1)
+anchors_preset = -1
+anchor_left = 0.66
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.15997
+offset_top = 58.0
+offset_right = -12.0
+offset_bottom = -23.0
+
+[node name="Character" type="Container" parent="InventoryMenu/Panel/Equipment"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 15
+size_flags_vertical = 15
+script = ExtResource("18")
+path = "res://images/RenderOutput/Lily/Frontal/Body_Clothed/Lily_Frontal_Body_Clothed_Default.json"
+
+[node name="OffsetContainer" type="Container" parent="InventoryMenu/Panel/Equipment/Character"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.5
+offset_top = -259.5
+offset_right = 323.5
+offset_bottom = 1585.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.281301, 0.281301)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("19")
+
+[node name="TransferMenu" type="Panel" parent="InventoryMenu/Panel"]
+unique_name_in_owner = true
+self_modulate = Color(0.894118, 0.890196, 0.890196, 1)
+anchors_preset = -1
+anchor_left = 0.66
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.15997
+offset_top = 58.0
+offset_right = -12.0
+offset_bottom = -23.0
+script = ExtResource("24")
+
+[node name="Label" type="Label" parent="InventoryMenu/Panel/TransferMenu"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 36.0
+offset_right = -6.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "Container"
+
+[node name="Put" type="Button" parent="InventoryMenu/Panel/TransferMenu"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -59.5
+offset_right = 32.0
+offset_bottom = -29.5
+grow_vertical = 2
+text = ">"
+
+[node name="Take" type="Button" parent="InventoryMenu/Panel/TransferMenu"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -14.5
+offset_right = 32.0
+offset_bottom = 15.5
+grow_vertical = 2
+text = "<"
+
+[node name="Take All" type="Button" parent="InventoryMenu/Panel/TransferMenu"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = 31.5
+offset_right = 29.0
+offset_bottom = 61.5
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "<<"
+
+[node name="Panel" type="Panel" parent="InventoryMenu/Panel/TransferMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 40.0
+offset_right = -6.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InventoryMenu/Panel/TransferMenu/Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryMenu/Panel/TransferMenu/Panel/ScrollContainer"]
+offset_right = 31.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" parent="InventoryMenu/Panel/TransferMenu/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("22")]
+offset_right = 312.0
+offset_bottom = 31.0
+
+[node name="Tooltip_L" parent="InventoryMenu/Panel" instance=ExtResource("46")]
+visible = false
+
+[node name="Tooltip_R" parent="InventoryMenu/Panel" instance=ExtResource("46")]
+visible = false
+anchor_left = 0.404
+anchor_right = 0.66
+offset_left = 0.303986
+offset_right = 0.159973
+
+[node name="CraftingMenu" type="Control" parent="." groups=["load"]]
+visible = false
+self_modulate = Color(0.172549, 0.172549, 0.172549, 1)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("28")
+
+[node name="BackgroundPanel" type="Panel" parent="CraftingMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 1
+
+[node name="RecipeSelectionPanel" type="Panel" parent="CraftingMenu/BackgroundPanel"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 185.0
+offset_bottom = -4.0
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 1
+script = ExtResource("31")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CraftingMenu/BackgroundPanel/RecipeSelectionPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 41.0
+offset_right = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-293.623, 201.003)
+size_flags_horizontal = 3
+focus_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingMenu/BackgroundPanel/RecipeSelectionPanel/ScrollContainer"]
+focus_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="CraftingMenu/BackgroundPanel/RecipeSelectionPanel"]
+anchors_preset = -1
+anchor_right = 1.171
+offset_top = 1.0
+offset_right = -11.951
+offset_bottom = 36.0
+placeholder_text = "Search Recipes"
+
+[node name="RecipeVariationSelectionPanel" type="Panel" parent="CraftingMenu/BackgroundPanel"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 219.0
+offset_top = 3.90552
+offset_right = 400.0
+offset_bottom = -3.09448
+grow_vertical = 2
+script = ExtResource("31")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CraftingMenu/BackgroundPanel/RecipeVariationSelectionPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_right = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-293.623, 201.003)
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingMenu/BackgroundPanel/RecipeVariationSelectionPanel/ScrollContainer"]
+
+[node name="Search" type="LineEdit" parent="CraftingMenu/BackgroundPanel/RecipeVariationSelectionPanel"]
+anchors_preset = -1
+anchor_right = 1.171
+offset_left = 1.43161
+offset_top = -0.905521
+offset_right = -11.5194
+offset_bottom = 34.0945
+placeholder_text = "Search Variations"
+
+[node name="Details" type="Panel" parent="CraftingMenu/BackgroundPanel"]
+anchors_preset = -1
+anchor_left = -0.006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 439.144
+offset_top = 3.0
+offset_right = -4.0
+offset_bottom = -4.0
+
+[node name="RecipeTitle" type="Label" parent="CraftingMenu/BackgroundPanel/Details"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+text = "Recipe Name"
+
+[node name="Description" type="RichTextLabel" parent="CraftingMenu/BackgroundPanel/Details"]
+anchors_preset = -1
+anchor_top = 0.002
+anchor_right = 1.0
+anchor_bottom = 0.857
+offset_left = 187.0
+offset_top = 46.894
+offset_bottom = 0.0789795
+text = "This is a recipe description"
+
+[node name="Components" type="Panel" parent="CraftingMenu/BackgroundPanel/Details"]
+self_modulate = Color(0.807843, 0.803922, 0.803922, 1)
+anchors_preset = -1
+anchor_top = -0.007
+anchor_bottom = 1.0
+offset_top = 44.871
+offset_right = 180.0
+offset_bottom = -79.0
+
+[node name="Label" type="Label" parent="CraftingMenu/BackgroundPanel/Details/Components"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 39.0
+grow_horizontal = 2
+text = "Components needed :"
+
+[node name="ItemList" type="ItemList" parent="CraftingMenu/BackgroundPanel/Details/Components"]
+offset_left = 3.0
+offset_top = 37.0
+offset_right = 178.0
+offset_bottom = 431.0
+focus_mode = 0
+item_count = 1
+item_0/text = "Thing the first ( 1 ) "
+
+[node name="CraftButton" type="Button" parent="CraftingMenu/BackgroundPanel/Details"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 187.0
+offset_top = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CRAFT"
+
+[node name="LineEdit" type="LineEdit" parent="CraftingMenu/BackgroundPanel/Details"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -76.0
+offset_right = 180.0
+grow_vertical = 0
+text = "1"
+placeholder_text = "Count"
+
+[node name="Header" parent="CraftingMenu" instance=ExtResource("10")]
+offset_bottom = 0.0
+
+[node name="Label" parent="CraftingMenu/Header" index="0"]
+text = "Crafting"
+
+[node name="Clock" parent="CraftingMenu/Header" index="1"]
+offset_left = -41.0
+offset_right = 0.0
+
+[node name="Button" parent="CraftingMenu/Header" index="2"]
+offset_right = 18.0
+offset_bottom = 0.0
+
+[node name="Clock_Symbol" parent="CraftingMenu/Header" index="3"]
+offset_left = -16.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="StatusMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("30")
+
+[node name="Panel" type="Panel" parent="StatusMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Header" parent="StatusMenu/Panel" instance=ExtResource("10")]
+offset_bottom = 0.0
+
+[node name="Label" parent="StatusMenu/Panel/Header" index="0"]
+offset_left = -1.0
+text = "Status"
+
+[node name="Clock" parent="StatusMenu/Panel/Header" index="1"]
+offset_left = -41.0
+offset_right = 0.0
+
+[node name="Button" parent="StatusMenu/Panel/Header" index="2"]
+offset_right = 18.0
+offset_bottom = 0.0
+
+[node name="Clock_Symbol" parent="StatusMenu/Panel/Header" index="3"]
+offset_left = -16.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Subheader" type="Panel" parent="StatusMenu/Panel"]
+self_modulate = Color(0.498039, 0.498039, 0.498039, 1)
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 44.0
+offset_bottom = 77.0
+grow_horizontal = 2
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatusMenu/Panel/Subheader"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FocusPanel" type="NinePatchRect" parent="StatusMenu/Panel/Subheader/HBoxContainer"]
+offset_right = 333.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+focus_mode = 2
+mouse_filter = 0
+script = ExtResource("32")
+focus_color = Color(0.345098, 0.345098, 0.345098, 1)
+
+[node name="Label" type="Label" parent="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stats"
+
+[node name="VSeparator" type="VSeparator" parent="StatusMenu/Panel/Subheader/HBoxContainer"]
+offset_left = 337.0
+offset_right = 341.0
+offset_bottom = 33.0
+
+[node name="FocusPanel2" type="NinePatchRect" parent="StatusMenu/Panel/Subheader/HBoxContainer"]
+offset_left = 345.0
+offset_right = 678.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+focus_mode = 2
+mouse_filter = 0
+script = ExtResource("32")
+focus_color = Color(0.345098, 0.345098, 0.345098, 1)
+focus_color_self = Color(0.854902, 0.854902, 0.854902, 1)
+
+[node name="Label" type="Label" parent="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Relationships"
+
+[node name="VSeparator2" type="VSeparator" parent="StatusMenu/Panel/Subheader/HBoxContainer"]
+offset_left = 682.0
+offset_right = 686.0
+offset_bottom = 33.0
+
+[node name="FocusPanel3" type="NinePatchRect" parent="StatusMenu/Panel/Subheader/HBoxContainer"]
+offset_left = 690.0
+offset_right = 1024.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+focus_mode = 2
+mouse_filter = 0
+script = ExtResource("32")
+focus_color = Color(0.345098, 0.345098, 0.345098, 1)
+focus_color_self = Color(0.854902, 0.854902, 0.854902, 1)
+
+[node name="Label" type="Label" parent="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Achievements"
+
+[node name="Pages" type="Control" parent="StatusMenu/Panel"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsPage" type="Control" parent="StatusMenu/Panel/Pages"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("33")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatusMenu/Panel/Pages/StatsPage"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsPanel_Mental" parent="StatusMenu/Panel/Pages/StatsPage/HBoxContainer" instance=ExtResource("34")]
+self_modulate = Color(0, 2.33, 3.46, 0.28)
+
+[node name="VSeparator" type="VSeparator" parent="StatusMenu/Panel/Pages/StatsPage/HBoxContainer"]
+offset_left = 506.0
+offset_right = 510.0
+offset_bottom = 517.0
+
+[node name="StatsPanel_Physical" parent="StatusMenu/Panel/Pages/StatsPage/HBoxContainer" instance=ExtResource("34")]
+self_modulate = Color(2.32157, 0.678431, 0.678431, 0.4)
+offset_left = 514.0
+offset_right = 1016.0
+
+[node name="Mental" parent="StatusMenu/Panel/Pages/StatsPage/HBoxContainer/StatsPanel_Physical/VBoxContainer" index="0"]
+text = "Physical"
+
+[node name="RelationsPage" type="Control" parent="StatusMenu/Panel/Pages"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("35")
+
+[node name="ScrollContainer" parent="StatusMenu/Panel/Pages/RelationsPage" instance=ExtResource("36")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AchievementsPage" type="Control" parent="StatusMenu/Panel/Pages"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("37")
+
+[node name="ScrollContainer" parent="StatusMenu/Panel/Pages/AchievementsPage" instance=ExtResource("36")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveMenu" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7")
+
+[node name="AutoFocusContainer" type="Control" parent="SaveMenu"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SaveMenu/AutoFocusContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 98.0
+offset_right = -22.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SaveMenu/AutoFocusContainer/ScrollContainer"]
+clip_contents = true
+size_flags_horizontal = 3
+
+[node name="Header" type="Panel" parent="SaveMenu/AutoFocusContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 98.0
+grow_horizontal = 2
+
+[node name="PathInput" type="LineEdit" parent="SaveMenu/AutoFocusContainer/Header"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 25.0
+offset_top = 21.0
+offset_right = -290.0
+offset_bottom = 78.0
+grow_horizontal = 2
+text = "user://autosave"
+script = ExtResource("13")
+
+[node name="Load" type="Button" parent="SaveMenu/AutoFocusContainer/Header"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -28.0
+offset_right = -159.0
+offset_bottom = 29.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Load"
+
+[node name="Save" type="Button" parent="SaveMenu/AutoFocusContainer/Header"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -141.887
+offset_top = -28.0
+offset_right = -20.8866
+offset_bottom = 29.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Save"
+
+[node name="WaitMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("53")
+
+[node name="FocusPanel" type="NinePatchRect" parent="WaitMenu"]
+self_modulate = Color(0.0784314, 0.0784314, 0.0784314, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.0
+offset_top = -201.0
+offset_right = 322.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("52")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 14
+patch_margin_bottom = 13
+
+[node name="Header" parent="WaitMenu/FocusPanel" instance=ExtResource("10")]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = 46.0
+
+[node name="Label" parent="WaitMenu/FocusPanel/Header" index="0"]
+text = "WAIT"
+
+[node name="Clock" parent="WaitMenu/FocusPanel/Header" index="1"]
+offset_left = -41.0
+offset_right = 0.0
+
+[node name="Button" parent="WaitMenu/FocusPanel/Header" index="2"]
+offset_right = 18.0
+offset_bottom = 0.0
+
+[node name="Clock_Symbol" parent="WaitMenu/FocusPanel/Header" index="3"]
+offset_left = -16.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Control" type="Control" parent="WaitMenu/FocusPanel"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 45.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="WaitMenu/FocusPanel/Control"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 34.7218
+offset_right = 105.0
+offset_bottom = 71.7218
+grow_horizontal = 2
+grow_vertical = 2
+text = "Confirm"
+
+[node name="HSlider" type="HSlider" parent="WaitMenu/FocusPanel/Control"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 44.0
+offset_top = -62.2782
+offset_right = -40.0
+offset_bottom = -32.2782
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 86399.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WaitMenu/FocusPanel/Control"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -19.7562
+offset_bottom = 4.24377
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="EditHour" type="LineEdit" parent="WaitMenu/FocusPanel/Control/HBoxContainer"]
+offset_left = 154.0
+offset_right = 212.0
+offset_bottom = 24.0
+text = "0"
+
+[node name="Label2" type="Label" parent="WaitMenu/FocusPanel/Control/HBoxContainer"]
+offset_left = 216.0
+offset_top = 5.0
+offset_right = 252.0
+offset_bottom = 19.0
+text = "hours"
+
+[node name="EditMinute" type="LineEdit" parent="WaitMenu/FocusPanel/Control/HBoxContainer"]
+offset_left = 256.0
+offset_right = 314.0
+offset_bottom = 24.0
+text = "0"
+
+[node name="Label3" type="Label" parent="WaitMenu/FocusPanel/Control/HBoxContainer"]
+offset_left = 318.0
+offset_top = 5.0
+offset_right = 371.0
+offset_bottom = 19.0
+text = "minutes"
+
+[node name="EditSecond" type="LineEdit" parent="WaitMenu/FocusPanel/Control/HBoxContainer"]
+offset_left = 375.0
+offset_right = 433.0
+offset_bottom = 24.0
+text = "0"
+
+[node name="Label4" type="Label" parent="WaitMenu/FocusPanel/Control/HBoxContainer"]
+offset_left = 437.0
+offset_top = 5.0
+offset_right = 490.0
+offset_bottom = 19.0
+text = "seconds"
+
+[node name="ContextMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = -0.0944824
+offset_bottom = -0.0944824
+script = ExtResource("14")
+depth_first = true
+
+[node name="PanelContainer" type="PanelContainer" parent="ContextMenu"]
+offset_left = -0.273438
+offset_top = 0.378906
+offset_right = 213.727
+offset_bottom = 98.3789
+script = ExtResource("15")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContextMenu/PanelContainer"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 207.0
+offset_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="NotificationSystem" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.273438
+offset_top = -0.0944824
+offset_right = -0.273438
+offset_bottom = -0.0944824
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("20")
+
+[node name="MouseMenu" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+action_mode = 0
+
+[node name="GenericScript" type="Node" parent="MouseMenu"]
+script = ExtResource("21")
+code = "var list = node.get_node('../List')
+if list.visible:
+	list.hide()
+else:
+	list.show()"
+
+[node name="List" type="Panel" parent="MouseMenu"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -157.0
+offset_top = -270.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" type="Button" parent="MouseMenu/List"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+action_mode = 0
+text = "Inventory (I)"
+
+[node name="Quests" type="Button" parent="MouseMenu/List"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 28.0
+offset_bottom = 54.0
+grow_horizontal = 2
+action_mode = 0
+text = "Quests (Q)"
+
+[node name="Crafting" type="Button" parent="MouseMenu/List"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 56.3337
+offset_bottom = 82.3337
+grow_horizontal = 2
+action_mode = 0
+text = "Crafting (R)"
+
+[node name="Status" type="Button" parent="MouseMenu/List"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 83.8892
+offset_bottom = 109.889
+grow_horizontal = 2
+pivot_offset = Vector2(143.4, 4.52142)
+action_mode = 0
+text = "Status (C)"
+
+[node name="Abilitiies" type="Button" parent="MouseMenu/List"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 112.168
+offset_bottom = 138.168
+grow_horizontal = 2
+pivot_offset = Vector2(143.4, 4.52142)
+action_mode = 0
+text = "Abilities"
+
+[node name="MainMenu" type="Button" parent="MouseMenu/List"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+action_mode = 0
+text = "Main Menu"
+
+[node name="Panel2" type="Panel" parent="MouseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = -4.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Panel3" type="Panel" parent="MouseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 18.0826
+offset_right = -4.0
+offset_bottom = -15.9174
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Panel4" type="Panel" parent="MouseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 28.0
+offset_right = -4.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[connection signal="timeout" from="DialogueSystem/DialogueBox/Timer_Skip" to="DialogueSystem" method="_on_Timer_Skip_timeout"]
+[connection signal="pressed" from="DialogueSystem/ClickCatcher" to="DialogueSystem" method="consider_next_page"]
+[connection signal="pressed" from="EscapeMenu/EscapeMenu/VBoxContainer/Continue" to="." method="toggle_main_menu"]
+[connection signal="pressed" from="EscapeMenu/EscapeMenu/VBoxContainer/SaveLoad" to="." method="toggle_save_menu"]
+[connection signal="pressed" from="EscapeMenu/EscapeMenu/VBoxContainer/Options" to="." method="toggle_options_menu"]
+[connection signal="pressed" from="EscapeMenu/EscapeMenu/VBoxContainer/Exit" to="." method="quit_game"]
+[connection signal="button_down" from="EscapeMenu/Button" to="EscapeMenu/Button/GenericScript" method="run"]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/All" to="OptionsMenu" method="show_all"]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/Visuals" to="OptionsMenu" method="show_category" binds= ["Visuals"]]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/Audio" to="OptionsMenu" method="show_category" binds= ["Audio"]]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/Inputs" to="OptionsMenu" method="show_category" binds= ["Inputs"]]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/Game" to="OptionsMenu" method="show_category" binds= ["Game"]]
+[connection signal="pressed" from="OptionsMenu/AutoFocusContainer/List/ScrollContainer/VBoxContainer/Dialogue" to="OptionsMenu" method="show_category" binds= ["Dialogue"]]
+[connection signal="pressed" from="InventoryMenu/Panel/Inventory/NextPage" to="InventoryMenu" method="next_page"]
+[connection signal="pressed" from="InventoryMenu/Panel/Inventory/PrevPage" to="InventoryMenu" method="prev_page"]
+[connection signal="pressed" from="InventoryMenu/Panel/TransferMenu/Put" to="InventoryMenu/Panel/TransferMenu" method="transfer_from_inventory"]
+[connection signal="pressed" from="InventoryMenu/Panel/TransferMenu/Take" to="InventoryMenu/Panel/TransferMenu" method="transfer_to_inventory"]
+[connection signal="pressed" from="InventoryMenu/Panel/TransferMenu/Take All" to="InventoryMenu/Panel/TransferMenu" method="transfer_all"]
+[connection signal="focus_entered" from="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel" to="StatusMenu" method="change_page" binds= ["StatsPage"]]
+[connection signal="focus_entered" from="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel2" to="StatusMenu" method="change_page" binds= ["RelationsPage"]]
+[connection signal="focus_entered" from="StatusMenu/Panel/Subheader/HBoxContainer/FocusPanel3" to="StatusMenu" method="change_page" binds= ["AchievementsPage"]]
+[connection signal="pressed" from="SaveMenu/AutoFocusContainer/Header/Load" to="SaveMenu" method="load"]
+[connection signal="pressed" from="SaveMenu/AutoFocusContainer/Header/Save" to="SaveMenu" method="save"]
+[connection signal="pressed" from="MouseMenu" to="MouseMenu/GenericScript" method="_run"]
+[connection signal="pressed" from="MouseMenu/List/Inventory" to="." method="toggle_inventory"]
+[connection signal="pressed" from="MouseMenu/List/Quests" to="." method="toggle_quest_menu"]
+[connection signal="pressed" from="MouseMenu/List/Crafting" to="." method="toggle_crafting_menu"]
+[connection signal="pressed" from="MouseMenu/List/Status" to="." method="toggle_status_menu"]
+[connection signal="pressed" from="MouseMenu/List/Abilitiies" to="." method="toggle_skill_menu"]
+[connection signal="pressed" from="MouseMenu/List/MainMenu" to="." method="toggle_main_menu"]
+
+[editable path="SkillMenu/Panel/Header2"]
+[editable path="InventoryMenu/Panel/Header2"]
+[editable path="InventoryMenu/Panel/Inventory/GridContainer/InventorySlot"]
+[editable path="CraftingMenu/Header"]
+[editable path="StatusMenu/Panel/Header"]
+[editable path="StatusMenu/Panel/Pages/StatsPage/HBoxContainer/StatsPanel_Physical"]
+[editable path="WaitMenu/FocusPanel/Header"]

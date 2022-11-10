@@ -1,0 +1,54 @@
+{
+    "character": "Lily",
+    "pose": "Tentacle_Flail",
+    "expression": "Sadness",
+    "type": "Expression",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyebrows_Fill_Tentacle_Flail,Sad_PyreFullPerspective.png",
+            "position": [
+                1637,
+                435,
+                -0.16557122766971588
+            ],
+            "name": "Eyebrows_Fill"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Nice_Smile_Tentacle_Flail,Sad_PyreFullPerspective.png",
+            "position": [
+                1752,
+                541,
+                -0.1652957648038864
+            ],
+            "name": "Nice_Smile"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyes,Eye_L,Eye_R_Tentacle_Flail,Sad_PyreFullPerspective.png",
+            "position": [
+                1589,
+                401,
+                0.2962818741798401
+            ],
+            "name": "Eyes,Eye_L,Eye_R"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyes_Outline_Tentacle_Flail,Sad_PyreFullPerspective.png",
+            "position": [
+                1645,
+                442,
+                0.2962818741798401
+            ],
+            "name": "Eyes_Outline"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyebrows_Outline_Tentacle_Flail,Sad_PyreFullPerspective.png",
+            "position": [
+                1635,
+                434,
+                0.2980053424835205
+            ],
+            "name": "Eyebrows_Outline"
+        }
+    ],
+    "camera": "PyreFullPerspective"
+}

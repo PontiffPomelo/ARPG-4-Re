@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://dshkjwmvljix5"]
+
+[ext_resource type="Script" path="res://Scripts/UI/NotificationPrompt.gd" id="1"]
+[ext_resource type="Theme" uid="uid://dvvifq4p3bbq6" path="res://Resources/Themes/font12.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://pmqyq8svp32o" path="res://Assets/Images/UI_DialogueBox.png" id="3"]
+
+[node name="NotificationPrompt" type="Control"]
+layout_mode = 3
+anchor_top = 0.012
+anchor_right = 1.0
+anchor_bottom = 0.012
+offset_left = 100.0
+offset_top = -0.2
+offset_right = -100.0
+offset_bottom = 28.8
+script = ExtResource("1")
+
+[node name="Panel" type="NinePatchRect" parent="."]
+self_modulate = Color(0.180392, 0.180392, 0.180392, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3")
+region_rect = Rect2(5, 5, 112, 112)
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = -8.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="HBoxContainer"]
+offset_right = 145.0
+offset_bottom = 25.0
+theme = ExtResource("2")
+text = "Quest advanced"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+self_modulate = Color(0.254902, 0.254902, 0.254902, 1)
+offset_left = 149.0
+offset_right = 153.0
+offset_bottom = 26.0
+
+[node name="Description" type="Label" parent="HBoxContainer"]
+offset_left = 157.0
+offset_right = 936.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "You've got mail"
+horizontal_alignment = 1
+vertical_alignment = 1

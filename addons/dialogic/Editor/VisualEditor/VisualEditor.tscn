@@ -1,0 +1,237 @@
+[gd_scene load_steps=5 format=3 uid="uid://ynhtuxgwp3se"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Editor/VisualEditor/VisualEditor.gd" id="1_pybf8"]
+[ext_resource type="Theme" uid="uid://cqst728xxipcw" path="res://addons/dialogic/Editor/Theme/MainTheme.tres" id="2_3mt7r"]
+[ext_resource type="Script" path="res://addons/dialogic/Editor/VisualEditor/TimelineArea.gd" id="3_1580x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrdhc"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.365, 0.365, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_detail = 1
+
+[node name="TimelineVisualEditor" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_pybf8")
+
+[node name="View" type="HSplitContainer" parent="."]
+layout_mode = 2
+offset_left = 5.0
+offset_right = 1147.0
+offset_bottom = 643.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_3mt7r")
+split_offset = 7
+
+[node name="TimelineArea" type="ScrollContainer" parent="View"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 930.0
+offset_bottom = 643.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mrdhc")
+script = ExtResource("3_1580x")
+
+[node name="Timeline" type="VBoxContainer" parent="View/TimelineArea"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 926.0
+offset_bottom = 639.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="View"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 942.0
+offset_right = 1142.0
+offset_bottom = 643.0
+
+[node name="EventContainer" type="VBoxContainer" parent="View/ScrollContainer"]
+layout_mode = 2
+offset_right = 192.0
+offset_bottom = 880.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_right = 192.0
+offset_bottom = 26.0
+
+[node name="Label" type="Label" parent="View/ScrollContainer/EventContainer/HBoxContainer6"]
+layout_mode = 2
+offset_right = 39.0
+offset_bottom = 26.0
+text = "Main"
+
+[node name="HSeparator2" type="HSeparator" parent="View/ScrollContainer/EventContainer/HBoxContainer6"]
+layout_mode = 2
+offset_left = 43.0
+offset_right = 192.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="FlexContainer0" type="HFlowContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 192.0
+offset_bottom = 131.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_top = 135.0
+offset_right = 192.0
+offset_bottom = 161.0
+
+[node name="Label2" type="Label" parent="View/ScrollContainer/EventContainer/HBoxContainer5"]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 26.0
+text = "Logic"
+
+[node name="HSeparator2" type="HSeparator" parent="View/ScrollContainer/EventContainer/HBoxContainer5"]
+layout_mode = 2
+offset_left = 44.0
+offset_right = 192.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="FlexContainer1" type="HFlowContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_top = 165.0
+offset_right = 192.0
+offset_bottom = 231.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_top = 235.0
+offset_right = 192.0
+offset_bottom = 261.0
+
+[node name="Label3" type="Label" parent="View/ScrollContainer/EventContainer/HBoxContainer3"]
+layout_mode = 2
+offset_right = 67.0
+offset_bottom = 26.0
+text = "Timeline"
+
+[node name="HSeparator2" type="HSeparator" parent="View/ScrollContainer/EventContainer/HBoxContainer3"]
+layout_mode = 2
+offset_left = 71.0
+offset_right = 192.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="FlexContainer2" type="HFlowContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_top = 265.0
+offset_right = 192.0
+offset_bottom = 366.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_top = 370.0
+offset_right = 192.0
+offset_bottom = 396.0
+
+[node name="Label4" type="Label" parent="View/ScrollContainer/EventContainer/HBoxContainer4"]
+layout_mode = 2
+offset_right = 98.0
+offset_bottom = 26.0
+text = "Audio/Visual"
+
+[node name="HSeparator2" type="HSeparator" parent="View/ScrollContainer/EventContainer/HBoxContainer4"]
+layout_mode = 2
+offset_left = 102.0
+offset_right = 192.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="FlexContainer3" type="HFlowContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_top = 400.0
+offset_right = 192.0
+offset_bottom = 606.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_top = 610.0
+offset_right = 192.0
+offset_bottom = 636.0
+
+[node name="Label5" type="Label" parent="View/ScrollContainer/EventContainer/HBoxContainer"]
+layout_mode = 2
+offset_right = 48.0
+offset_bottom = 26.0
+text = "Godot"
+
+[node name="HSeparator2" type="HSeparator" parent="View/ScrollContainer/EventContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 52.0
+offset_right = 192.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="FlexContainer4" type="HFlowContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_top = 640.0
+offset_right = 192.0
+offset_bottom = 776.0
+size_flags_horizontal = 3
+
+[node name="OtherContainer" type="HBoxContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_top = 780.0
+offset_right = 192.0
+offset_bottom = 806.0
+
+[node name="Label6" type="Label" parent="View/ScrollContainer/EventContainer/OtherContainer"]
+layout_mode = 2
+offset_right = 46.0
+offset_bottom = 26.0
+text = "Other"
+
+[node name="HSeparator2" type="HSeparator" parent="View/ScrollContainer/EventContainer/OtherContainer"]
+layout_mode = 2
+offset_left = 50.0
+offset_right = 192.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="FlexContainer5" type="HFlowContainer" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+offset_top = 810.0
+offset_right = 192.0
+offset_bottom = 876.0
+size_flags_horizontal = 3
+
+[node name="Spacer" type="Control" parent="View/ScrollContainer/EventContainer"]
+layout_mode = 2
+anchors_preset = 0
+offset_top = 880.0
+offset_right = 192.0
+offset_bottom = 880.0

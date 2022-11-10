@@ -1,0 +1,18 @@
+{
+    "character": "Lily",
+    "pose": "Frontal",
+    "expression": "Pajamas",
+    "type": "Clothes",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/Frontal/Pajamas_Frontal_Default.png",
+            "position": [
+                441,
+                471,
+                0.14101280272006989
+            ],
+            "name": "Pajamas"
+        }
+    ],
+    "camera": "Default"
+}

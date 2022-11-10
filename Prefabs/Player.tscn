@@ -1,0 +1,44 @@
+[gd_scene load_steps=11 format=3 uid="uid://dyophu54gsps4"]
+
+[ext_resource type="PackedScene" uid="uid://do1qk2b28g01w" path="res://Prefabs/Character.tscn" id="1_klnq2"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/Player.gd" id="2_crvh8"]
+[ext_resource type="Script" path="res://Scripts/Resources/Inventory.gd" id="3_fjk0d"]
+[ext_resource type="Script" path="res://Scripts/Resources/CharacterData.gd" id="3_o1i54"]
+[ext_resource type="Resource" uid="uid://ngopsr57a1rl" path="res://Resources/Items/TestPickup.tres" id="3_vit1v"]
+[ext_resource type="Script" path="res://Scripts/Resources/Local/LootEntry.gd" id="4_lgxs5"]
+
+[sub_resource type="Resource" id="Resource_nshm1"]
+script = ExtResource("4_lgxs5")
+item = ExtResource("3_vit1v")
+count = 1
+
+[sub_resource type="Resource" id="Resource_2jk4j"]
+script = ExtResource("3_fjk0d")
+items = [SubResource("Resource_nshm1")]
+
+[sub_resource type="Resource" id="Resource_8l1tj"]
+script = ExtResource("3_o1i54")
+gender = 1
+name = "Lily"
+pose_name = null
+default_pose = null
+default_expression = null
+default_body = null
+default_camera = null
+text_color = Color(0.796078, 0.494118, 0.709804, 1)
+text_speed = 1
+default_dialogue = null
+daily_rhythm = null
+inventory = SubResource("Resource_2jk4j")
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_53oi0"]
+
+[node name="Player" instance=ExtResource("1_klnq2")]
+script = ExtResource("2_crvh8")
+data = SubResource("Resource_8l1tj")
+
+[node name="AnimationTree" parent="." index="3"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_53oi0")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

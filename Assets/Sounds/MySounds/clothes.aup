@@ -1,0 +1,52 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="clothes_data" version="1.3.0" audacityversion="2.3.3" sel0="7.1343310658" sel1="9.1022222222" vpos="0" h="4.1041269841" zoom="172.2656250000" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="Audio Track" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="7.943282" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="721026">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fa08.au" len="1024" min="-0.000245" max="0.000077" rms="0.000101"/>
+				</waveblock>
+				<waveblock start="1024">
+					<simpleblockfile filename="eff1f5c4.au" len="186880" min="-0.025751" max="0.021378" rms="0.002739"/>
+				</waveblock>
+				<waveblock start="187904">
+					<simpleblockfile filename="eff1fc98.au" len="171264" min="-0.019165" max="0.016452" rms="0.002217"/>
+				</waveblock>
+				<waveblock start="359168">
+					<simpleblockfile filename="eff1f1bc.au" len="180929" min="-0.077098" max="0.072634" rms="0.008138"/>
+				</waveblock>
+				<waveblock start="540097">
+					<simpleblockfile filename="eff1fc90.au" len="180929" min="-0.001905" max="0.002908" rms="0.000408"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="7.943282" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="721026">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f9af.au" len="1024" min="-0.000245" max="0.000077" rms="0.000101"/>
+				</waveblock>
+				<waveblock start="1024">
+					<simpleblockfile filename="eff1f178.au" len="186880" min="-0.025751" max="0.021378" rms="0.002739"/>
+				</waveblock>
+				<waveblock start="187904">
+					<simpleblockfile filename="eff1f109.au" len="171264" min="-0.019165" max="0.016452" rms="0.002217"/>
+				</waveblock>
+				<waveblock start="359168">
+					<simpleblockfile filename="eff1f636.au" len="180929" min="-0.077098" max="0.072634" rms="0.008138"/>
+				</waveblock>
+				<waveblock start="540097">
+					<simpleblockfile filename="eff1fedd.au" len="180929" min="-0.001905" max="0.002908" rms="0.000408"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<labeltrack name="Label Track" isSelected="1" height="73" minimized="0" numlabels="1">
+		<label t="7.1343310658" t1="9.1022222222" title="cloth_wear_1"/>
+	</labeltrack>
+</project>

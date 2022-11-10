@@ -1,0 +1,153 @@
+{
+    "character": "Lily",
+    "pose": "Tentacle_Flail",
+    "expression": "Bathing",
+    "type": "Body",
+    "layers": [
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Hair_Long_Back_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1539,
+                344,
+                -0.5672462582588196
+            ],
+            "name": "Hair_Long_Back"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Body,Leg_R,Foot_R,Leg_L,Foot_L,Arm_R,Arm_L,Hand_R,Hand_L,Arms,Groin_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1537,
+                34,
+                -0.3375244438648224
+            ],
+            "name": "Body,Leg_R,Foot_R,Leg_L,Foot_L,Arm_R,Arm_L,Hand_R,Hand_L,Arms,Groin"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Water_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                0,
+                0,
+                -0.32606592774391174
+            ],
+            "name": "Water"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Breasts_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1766,
+                687,
+                -0.28163671493530273
+            ],
+            "name": "Breasts"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Ear_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1608,
+                564,
+                -0.26337942481040955
+            ],
+            "name": "Ear"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Breasts_Top_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1722,
+                632,
+                -0.23444418609142303
+            ],
+            "name": "Breasts_Top"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Face_Fill_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1560,
+                369,
+                -0.20556530356407166
+            ],
+            "name": "Face_Fill"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Hair_Long_Shadows_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1581,
+                394,
+                -0.18172787129878998
+            ],
+            "name": "Hair_Long_Shadows"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyebrows_Fill_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1635,
+                430,
+                -0.16557122766971588
+            ],
+            "name": "Eyebrows_Fill"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Nice_Smile_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1752,
+                540,
+                -0.1652957648038864
+            ],
+            "name": "Nice_Smile"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Nose_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1745,
+                527,
+                -0.16497604548931122
+            ],
+            "name": "Nose"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Blush1_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1680,
+                476,
+                -0.16389326751232147
+            ],
+            "name": "Blush1"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Hair_Long_Front_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1541,
+                345,
+                0.2786940634250641
+            ],
+            "name": "Hair_Long_Front"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyes,Eye_L,Eye_R_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1589,
+                401,
+                0.2962818741798401
+            ],
+            "name": "Eyes,Eye_L,Eye_R"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyes_Outline_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1647,
+                444,
+                0.2962818741798401
+            ],
+            "name": "Eyes_Outline"
+        },
+        {
+            "path": "./RenderOutput/Lily/Tentacle_Flail/Eyebrows_Outline_Tentacle_Flail_PyreFullPerspective.png",
+            "position": [
+                1635,
+                429,
+                0.2980053722858429
+            ],
+            "name": "Eyebrows_Outline"
+        }
+    ],
+    "camera": "PyreFullPerspective"
+}

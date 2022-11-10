@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca4g8cdd2ynjn"]
+
+[ext_resource type="Script" path="res://Scripts/Interactibles/PickupItemInstance.gd" id="1_oilua"]
+[ext_resource type="Texture2D" uid="uid://b0jm433jwo5a4" path="res://Assets/Images/Tilesets/Tileset_Merged_Props.png" id="3_e4frl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s0o8"]
+atlas = ExtResource("3_e4frl")
+region = Rect2(304, 32, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6j0b"]
+size = Vector2(21, 21)
+
+[node name="PickupItem" type="Area2D"]
+collision_layer = 524289
+collision_mask = 524289
+script = ExtResource("1_oilua")
+is_auto = false
+root = "."
+failure_dialogue = ""
+success_dialogue = ""
+_failure_sound = []
+_interact_sound = []
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0s0o8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_x6j0b")

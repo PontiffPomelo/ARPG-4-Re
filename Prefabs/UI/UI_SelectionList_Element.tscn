@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnuulucb3kpt1"]
+
+[ext_resource type="Texture2D" path="res://Resources/NinePatchRect_default.tres" id="1"]
+[ext_resource type="Script" path="res://Scripts/UI/FocusPanel.gd" id="2"]
+
+[node name="FocusPanel" type="NinePatchRect"]
+self_modulate = Color(0.152941, 0.152941, 0.152941, 1)
+offset_right = 200.0
+offset_bottom = 31.0
+pivot_offset = Vector2(144.355, 78.1699)
+focus_mode = 2
+mouse_filter = 0
+texture = ExtResource("1")
+patch_margin_left = 25
+patch_margin_right = 27
+patch_margin_bottom = 31
+script = ExtResource("2")
+focus_color_self = Color(0.301961, 0.301961, 0.301961, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rags"
+horizontal_alignment = 1
+vertical_alignment = 1

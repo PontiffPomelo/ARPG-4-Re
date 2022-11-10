@@ -1,0 +1,870 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "Control",
+"class": &"AchievementsPage",
+"language": &"GDScript",
+"path": "res://Scripts/UI/AchievementsPage.gd"
+}, {
+"base": "Control",
+"class": &"AutoFocusContainer",
+"language": &"GDScript",
+"path": "res://Scripts/UI/AutoFocusContainer.gd"
+}, {
+"base": "Node2D",
+"class": &"Character",
+"language": &"GDScript",
+"path": "res://Scripts/Characters/Character.gd"
+}, {
+"base": "Resource",
+"class": &"CharacterData",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/CharacterData.gd"
+}, {
+"base": "EditorProperty",
+"class": &"CharacterDropdownEditorProperty",
+"language": &"GDScript",
+"path": "res://addons/character_sprite_selector/CharacterDropdownEditorProperty.gd"
+}, {
+"base": "EditorInspectorPlugin",
+"class": &"CharacterSpriteInspectorPlugin",
+"language": &"GDScript",
+"path": "res://addons/character_sprite_selector/CharacterSpriteInspectorPlugin.gd"
+}, {
+"base": "AutoFocusContainer",
+"class": &"ContextMenu",
+"language": &"GDScript",
+"path": "res://Scripts/UI/ContextMenu.gd"
+}, {
+"base": "Button",
+"class": &"ContextMenuButton",
+"language": &"GDScript",
+"path": "res://Scripts/UI/ContextMenuButton.gd"
+}, {
+"base": "AutoFocusContainer",
+"class": &"CraftingMenu",
+"language": &"GDScript",
+"path": "res://Scripts/UI/CraftingMenu.gd"
+}, {
+"base": "Node",
+"class": &"CustomEventConverter",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Converter/Custom_Event_Converter.gd"
+}, {
+"base": "RefCounted",
+"class": &"DCSS",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Editor/Common/DCSS.gd"
+}, {
+"base": "Control",
+"class": &"DNextIndicator",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Text/DNextIndicator.gd"
+}, {
+"base": "Resource",
+"class": &"Date",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/Date.gd"
+}, {
+"base": "Node",
+"class": &"DialogicAnimation",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Character/DialogicAnimationClass.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicBackgroundEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Background/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicCallNodeEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Call Node/event.gd"
+}, {
+"base": "Resource",
+"class": &"DialogicCharacter",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Resources/character.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicCharacterEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Character/event.gd"
+}, {
+"base": "ResourceFormatLoader",
+"class": &"DialogicCharacterFormatLoader",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Resources/CharacterResourceLoader.gd"
+}, {
+"base": "ResourceFormatSaver",
+"class": &"DialogicCharacterFormatSaver",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Resources/CharacterResourceSaver.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicChoiceEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Choice/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicCodeEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Code/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicCommentEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Comment/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicConditionEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Condition/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicConverterEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Converter/event.gd"
+}, {
+"base": "Node",
+"class": &"DialogicDefaultPortrait",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Character/DefaultPortrait.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicEndBranchEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/End Branch/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicEndTimelineEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/End/event.gd"
+}, {
+"base": "Resource",
+"class": &"DialogicEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Resources/event.gd"
+}, {
+"base": "Resource",
+"class": &"DialogicGlossary",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Glossary/GlossaryResource.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicGlossaryEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Glossary/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicHistoryEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/History/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicJumpEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Jump/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicLabelEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Label/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicMusicEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Music/event.gd"
+}, {
+"base": "CanvasLayer",
+"class": &"DialogicNode_BackgroundHolder",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Background/DialogicNode_BackgroundHolder.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": &"DialogicNode_ButtonSound",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Choice/SoundButton.gd"
+}, {
+"base": "Button",
+"class": &"DialogicNode_ChoiceButton",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Choice/DialogicNode_ChoiceButton.gd"
+}, {
+"base": "RichTextLabel",
+"class": &"DialogicNode_DialogText",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Text/DialogicNode_DialogText.gd"
+}, {
+"base": "Node",
+"class": &"DialogicNode_InputHandler",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Text/DialogicNode_InputHandler.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": &"DialogicNode_MusicPlayer",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Music/DialogicNode_MusicPlayer.gd"
+}, {
+"base": "Label",
+"class": &"DialogicNode_NameLabel",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Text/DialogicNode_NameLabel.gd"
+}, {
+"base": "CanvasLayer",
+"class": &"DialogicNode_PortraitHolder",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Character/DialogicNode_PortraitHolder.gd"
+}, {
+"base": "Marker2D",
+"class": &"DialogicNode_PortraitPosition",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Character/DialogicNode_PortraitPosition.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": &"DialogicNode_SoundPlayer",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Sound/DialogicNode_SoundPlayer.gd"
+}, {
+"base": "Control",
+"class": &"DialogicNode_Style",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Style/DialogicNode_Style.gd"
+}, {
+"base": "Control",
+"class": &"DialogicNode_TextInput",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/TextInput/DialogicNode_TextInput.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": &"DialogicNode_TypeSounds",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Text/DialogicNode_TypeSounds.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": &"DialogicNode_VoicePlayer",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Voice/DialogicNode_VoicePlayer.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicPositionEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Position/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicSaveEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Save/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicSignalEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Signal/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicSoundEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Sound/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicStyleEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Style/event.gd"
+}, {
+"base": "Node",
+"class": &"DialogicSubsystem",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Other/Dialogic_Subsystem.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicTextEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Text/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicTextInputEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/TextInput/event.gd"
+}, {
+"base": "Resource",
+"class": &"DialogicTimeline",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Resources/timeline.gd"
+}, {
+"base": "ResourceFormatLoader",
+"class": &"DialogicTimelineFormatLoader",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Resources/TimelineResourceLoader.gd"
+}, {
+"base": "ResourceFormatSaver",
+"class": &"DialogicTimelineFormatSaver",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Resources/TimelineResourceSaver.gd"
+}, {
+"base": "RefCounted",
+"class": &"DialogicUtil",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Other/DialogicUtil.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicVariableEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Variable/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicVoiceEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Voice/event.gd"
+}, {
+"base": "DialogicEvent",
+"class": &"DialogicWaitEvent",
+"language": &"GDScript",
+"path": "res://addons/dialogic/Events/Wait/event.gd"
+}, {
+"base": "Control",
+"class": &"DialogueBox",
+"language": &"GDScript",
+"path": "res://Scripts/UI/DialogueBox.gd"
+}, {
+"base": "Interactible",
+"class": &"Door",
+"language": &"GDScript",
+"path": "res://Scripts/Interactibles/Door.gd"
+}, {
+"base": "Container",
+"class": &"EnvelopeContainer",
+"language": &"GDScript",
+"path": "res://Scripts/UI/EnvelopeContainer.gd"
+}, {
+"base": "PickupItem",
+"class": &"EquipmentItem",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/EquipmentItem.gd"
+}, {
+"base": "Resource",
+"class": &"EquipmentItemSlotVariation",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/EquipmentItemSlotVariation.gd"
+}, {
+"base": "Sprite2D",
+"class": &"EquipmentSprite",
+"language": &"GDScript",
+"path": "res://Scripts/Characters/EquipmentSprite.gd"
+}, {
+"base": "Label",
+"class": &"FloatingLabel",
+"language": &"GDScript",
+"path": "res://Scripts/UI/FloatingLabel.gd"
+}, {
+"base": "NinePatchRect",
+"class": &"FocusPanel",
+"language": &"GDScript",
+"path": "res://Scripts/UI/FocusPanel.gd"
+}, {
+"base": "Interactible",
+"class": &"GenericInteractible",
+"language": &"GDScript",
+"path": "res://Scripts/Interactibles/GenericInteractible.gd"
+}, {
+"base": "Node",
+"class": &"GenericScript",
+"language": &"GDScript",
+"path": "res://Scripts/GenericScript.gd"
+}, {
+"base": "Interactible",
+"class": &"Harvestable",
+"language": &"GDScript",
+"path": "res://Scripts/Interactibles/Harvestable.gd"
+}, {
+"base": "Area2D",
+"class": &"Interactible",
+"language": &"GDScript",
+"path": "res://Scripts/Interactibles/Interactible.gd"
+}, {
+"base": "Resource",
+"class": &"Inventory",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/Inventory.gd"
+}, {
+"base": "AutoFocusContainer",
+"class": &"InventoryMenu",
+"language": &"GDScript",
+"path": "res://Scripts/UI/InventoryMenu.gd"
+}, {
+"base": "FocusPanel",
+"class": &"InventorySlot",
+"language": &"GDScript",
+"path": "res://Scripts/UI/InventorySlot.gd"
+}, {
+"base": "ScaleChildrenToFitContainer",
+"class": &"JSON_Sprite",
+"language": &"GDScript",
+"path": "res://Scripts/UI/JSON_Sprite.gd"
+}, {
+"base": "Resource",
+"class": &"LootEntry",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/Local/LootEntry.gd"
+}, {
+"base": "Interactible",
+"class": &"LootableContainer",
+"language": &"GDScript",
+"path": "res://Scripts/Interactibles/LootableContainer.gd"
+}, {
+"base": "Resource",
+"class": &"MenuAction",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/MenuAction.gd"
+}, {
+"base": "Resource",
+"class": &"MenuActionGeneric",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/MenuActionGeneric.gd"
+}, {
+"base": "LineEdit",
+"class": &"MyLineEdit",
+"language": &"GDScript",
+"path": "res://Scripts/UI/MyLineEdit.gd"
+}, {
+"base": "Control",
+"class": &"NotificationPrompt",
+"language": &"GDScript",
+"path": "res://Scripts/UI/NotificationPrompt.gd"
+}, {
+"base": "Control",
+"class": &"NotificationSystem",
+"language": &"GDScript",
+"path": "res://Scripts/UI/NotificationSystem.gd"
+}, {
+"base": "Area2D",
+"class": &"PermissionArea",
+"language": &"GDScript",
+"path": "res://Scripts/Permission/PermissionArea.gd"
+}, {
+"base": "Resource",
+"class": &"PickupItem",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/PickupItem.gd"
+}, {
+"base": "Interactible",
+"class": &"PickupItemInstance",
+"language": &"GDScript",
+"path": "res://Scripts/Interactibles/PickupItemInstance.gd"
+}, {
+"base": "Character",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://Scripts/Characters/Player/Player.gd"
+}, {
+"base": "Node2D",
+"class": &"PlayerSprite",
+"language": &"GDScript",
+"path": "res://Scripts/Characters/Player/PlayerSprite.gd"
+}, {
+"base": "RichTextLabel",
+"class": &"PoorTextLabel",
+"language": &"GDScript",
+"path": "res://Scripts/UI/PoorTextLabel.gd"
+}, {
+"base": "Interactible",
+"class": &"Portal",
+"language": &"GDScript",
+"path": "res://Scripts/Interactibles/Portal.gd"
+}, {
+"base": "Resource",
+"class": &"Quest",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/Quest.gd"
+}, {
+"base": "FocusPanel",
+"class": &"QuestElement",
+"language": &"GDScript",
+"path": "res://Scripts/UI/QuestElement.gd"
+}, {
+"base": "Control",
+"class": &"QuestMenu",
+"language": &"GDScript",
+"path": "res://Scripts/UI/QuestMenu.gd"
+}, {
+"base": "Resource",
+"class": &"Quest_Stage",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/Quest_Stage.gd"
+}, {
+"base": "Resource",
+"class": &"Recipe",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/Recipe.gd"
+}, {
+"base": "Resource",
+"class": &"RecipeComponent",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/RecipeComponent.gd"
+}, {
+"base": "Control",
+"class": &"RelationsPage",
+"language": &"GDScript",
+"path": "res://Scripts/UI/RelationsPage.gd"
+}, {
+"base": "Panel",
+"class": &"SaveMenu",
+"language": &"GDScript",
+"path": "res://Scripts/UI/SaveMenu.gd"
+}, {
+"base": "Container",
+"class": &"ScaleChildrenToFitContainer",
+"language": &"GDScript",
+"path": "res://Scripts/UI/ScaleChildrenToFitContainer.gd"
+}, {
+"base": "Resource",
+"class": &"SceneWorld",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/SceneWorld.gd"
+}, {
+"base": "ScrollContainer",
+"class": &"ScrollableTable",
+"language": &"GDScript",
+"path": "res://Scripts/UI/ScrollableTable.gd"
+}, {
+"base": "Panel",
+"class": &"SelectionList",
+"language": &"GDScript",
+"path": "res://Scripts/UI/SelectionList.gd"
+}, {
+"base": "Resource",
+"class": &"Skill",
+"language": &"GDScript",
+"path": "res://Scripts/Resources/Skill.gd"
+}, {
+"base": "Control",
+"class": &"SkillBubble",
+"language": &"GDScript",
+"path": "res://Scripts/UI/SkillBubble.gd"
+}, {
+"base": "Control",
+"class": &"SkillMenu",
+"language": &"GDScript",
+"path": "res://Scripts/UI/SkillMenu.gd"
+}, {
+"base": "Control",
+"class": &"StatsPage",
+"language": &"GDScript",
+"path": "res://Scripts/UI/StatsPage.gd"
+}, {
+"base": "Control",
+"class": &"StatusPanel",
+"language": &"GDScript",
+"path": "res://Scripts/UI/StatusPanel.gd"
+}, {
+"base": "Control",
+"class": &"Transitioner",
+"language": &"GDScript",
+"path": "res://Scripts/UI/Transitioner.gd"
+}, {
+"base": "Resource",
+"class": &"TransitionerTarget",
+"language": &"GDScript",
+"path": "res://Scripts/UI/TransitionerTarget.gd"
+}, {
+"base": "CanvasLayer",
+"class": &"UI",
+"language": &"GDScript",
+"path": "res://Scripts/UI/UI.gd"
+}, {
+"base": "FocusPanel",
+"class": &"UI_ContainerItem",
+"language": &"GDScript",
+"path": "res://Scripts/UI/UI_ContainerItem.gd"
+}, {
+"base": "Panel",
+"class": &"UI_ContainerTransfer",
+"language": &"GDScript",
+"path": "res://Scripts/UI/UI_ContainerTransfer.gd"
+}, {
+"base": "Panel",
+"class": &"UI_FadeOutPanel",
+"language": &"GDScript",
+"path": "res://Scripts/UI/UI_FadeOutPanel.gd"
+}, {
+"base": "FocusPanel",
+"class": &"UI_SaveMenuElement",
+"language": &"GDScript",
+"path": "res://Scripts/UI/UI_SaveMenuElement.gd"
+}, {
+"base": "AutoFocusContainer",
+"class": &"WaitMenu",
+"language": &"GDScript",
+"path": "res://Scripts/UI/WaitMenu.gd"
+}]
+_global_script_class_icons={
+"AchievementsPage": "",
+"AutoFocusContainer": "",
+"Character": "",
+"CharacterData": "",
+"CharacterDropdownEditorProperty": "",
+"CharacterSpriteInspectorPlugin": "",
+"ContextMenu": "",
+"ContextMenuButton": "",
+"CraftingMenu": "",
+"CustomEventConverter": "",
+"DCSS": "",
+"DNextIndicator": "res://addons/dialogic/Events/Text/DNextIndicator_icon.svg",
+"Date": "",
+"DialogicAnimation": "",
+"DialogicBackgroundEvent": "",
+"DialogicCallNodeEvent": "",
+"DialogicCharacter": "",
+"DialogicCharacterEvent": "",
+"DialogicCharacterFormatLoader": "",
+"DialogicCharacterFormatSaver": "",
+"DialogicChoiceEvent": "",
+"DialogicCodeEvent": "",
+"DialogicCommentEvent": "",
+"DialogicConditionEvent": "",
+"DialogicConverterEvent": "",
+"DialogicDefaultPortrait": "",
+"DialogicEndBranchEvent": "",
+"DialogicEndTimelineEvent": "",
+"DialogicEvent": "",
+"DialogicGlossary": "",
+"DialogicGlossaryEvent": "",
+"DialogicHistoryEvent": "",
+"DialogicJumpEvent": "",
+"DialogicLabelEvent": "",
+"DialogicMusicEvent": "",
+"DialogicNode_BackgroundHolder": "",
+"DialogicNode_ButtonSound": "",
+"DialogicNode_ChoiceButton": "",
+"DialogicNode_DialogText": "",
+"DialogicNode_InputHandler": "",
+"DialogicNode_MusicPlayer": "",
+"DialogicNode_NameLabel": "",
+"DialogicNode_PortraitHolder": "",
+"DialogicNode_PortraitPosition": "",
+"DialogicNode_SoundPlayer": "",
+"DialogicNode_Style": "",
+"DialogicNode_TextInput": "",
+"DialogicNode_TypeSounds": "",
+"DialogicNode_VoicePlayer": "",
+"DialogicPositionEvent": "",
+"DialogicSaveEvent": "",
+"DialogicSignalEvent": "",
+"DialogicSoundEvent": "",
+"DialogicStyleEvent": "",
+"DialogicSubsystem": "",
+"DialogicTextEvent": "",
+"DialogicTextInputEvent": "",
+"DialogicTimeline": "",
+"DialogicTimelineFormatLoader": "",
+"DialogicTimelineFormatSaver": "",
+"DialogicUtil": "",
+"DialogicVariableEvent": "",
+"DialogicVoiceEvent": "",
+"DialogicWaitEvent": "",
+"DialogueBox": "",
+"Door": "",
+"EnvelopeContainer": "",
+"EquipmentItem": "",
+"EquipmentItemSlotVariation": "",
+"EquipmentSprite": "",
+"FloatingLabel": "",
+"FocusPanel": "",
+"GenericInteractible": "",
+"GenericScript": "",
+"Harvestable": "",
+"Interactible": "",
+"Inventory": "",
+"InventoryMenu": "",
+"InventorySlot": "",
+"JSON_Sprite": "",
+"LootEntry": "",
+"LootableContainer": "",
+"MenuAction": "",
+"MenuActionGeneric": "",
+"MyLineEdit": "",
+"NotificationPrompt": "",
+"NotificationSystem": "",
+"PermissionArea": "",
+"PickupItem": "",
+"PickupItemInstance": "",
+"Player": "",
+"PlayerSprite": "",
+"PoorTextLabel": "",
+"Portal": "",
+"Quest": "",
+"QuestElement": "",
+"QuestMenu": "",
+"Quest_Stage": "",
+"Recipe": "",
+"RecipeComponent": "",
+"RelationsPage": "",
+"SaveMenu": "",
+"ScaleChildrenToFitContainer": "",
+"SceneWorld": "",
+"ScrollableTable": "",
+"SelectionList": "",
+"Skill": "",
+"SkillBubble": "",
+"SkillMenu": "",
+"StatsPage": "",
+"StatusPanel": "",
+"Transitioner": "",
+"TransitionerTarget": "",
+"UI": "",
+"UI_ContainerItem": "",
+"UI_ContainerTransfer": "",
+"UI_FadeOutPanel": "",
+"UI_SaveMenuElement": "",
+"WaitMenu": ""
+}
+
+[application]
+
+config/name="ARPG-4-Re"
+run/main_scene="res://Root.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Helper="*res://Scripts/Helpers/Helper.gd"
+GameData="*res://Scripts/Helpers/GameData.gd"
+ResourceManager="*res://Scripts/Helpers/ResourceManager.gd"
+SceneManager="*res://Scripts/Helpers/SceneManager.gd"
+SoundManager="*res://Scripts/Helpers/SoundManager.gd"
+Global="*res://Scripts/Helpers/Global.gd"
+
+[dialogic]
+
+editor/character_preview_mode=0
+history/history_system=true
+history/full_history=true
+history/text_history=true
+animations/join_default_length=0.5
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/join_default_wait=true
+text/speed=0.01
+text/skippable=true
+text/autocontinue_delay=1.0
+choices/autofocus_first=true
+choices/delay=0.2
+glossary/default_case_sensitive=true
+save/autosave_delay=60.0
+editor/last_resources=["res://Resources/Dialogues/TestTimeline.dtl", "res://Resources/Characters/Tome.dch"]
+variables={}
+editor/current_timeline_path="res://Resources/Dialogues/TestTimeline.dtl"
+
+[dotnet]
+
+project/assembly_name="ARPG-4-Re"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/character_sprite_selector/plugin.cfg")
+
+[input]
+
+ui_menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194370,"physical_keycode":0,"unicode":4194370,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"unicode":0,"echo":false,"script":null)
+]
+}
+go_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"unicode":0,"echo":false,"script":null)
+]
+}
+go_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"unicode":0,"echo":false,"script":null)
+]
+}
+go_up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"unicode":0,"echo":false,"script":null)
+]
+}
+go_down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"unicode":0,"echo":false,"script":null)
+]
+}
+sprint={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"unicode":0,"echo":false,"script":null)
+]
+}
+dialogic_default_action={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+ui_inventory_menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"unicode":0,"echo":false,"script":null)
+]
+}
+ui_quest_menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":74,"unicode":0,"echo":false,"script":null)
+]
+}
+ui_crafting_menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"unicode":0,"echo":false,"script":null)
+]
+}
+ui_status_menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":67,"unicode":0,"echo":false,"script":null)
+]
+}
+ui_wait_menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":84,"unicode":0,"echo":false,"script":null)
+]
+}
+sneak={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"unicode":0,"echo":false,"script":null)
+]
+}
+quickload={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194337,"unicode":0,"echo":false,"script":null)
+]
+}
+quicksave={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194336,"unicode":0,"echo":false,"script":null)
+]
+}
+interact={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"unicode":0,"echo":false,"script":null)
+]
+}
+select_next_interactible={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"unicode":0,"echo":false,"script":null)
+]
+}

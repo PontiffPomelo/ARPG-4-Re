@@ -1,0 +1,16 @@
+https://opengameart.org/content/the-field-of-the-floating-islands tiles.png,tiles_packed.png,snow-expansion.png Public Domain
+https://opengameart.org/content/cobblestone-tileset cobbleset-64.png CC-BY
+https://www.newgrounds.com/art/view/hyptosis/tile-art-batch-1 hyptosis_tile-art-batch-1.png,hyptosis_til-art-batch-2.png,hyptosis_tile-art-batch-3.png,hyptosis_tile-art-batch-4.png,hyptosis_tile-art-batch-5.png,hyptosis_sprites-and-tiles-for-you.png,BombExploding.png CC-BY
+https://opengameart.org/content/mage-city-arcanos Public Domain 
+https://opengameart.org/content/wall-grass-rock-stone-wood-and-dirt-480 wests_textures Public Domain
+https://opengameart.org/content/rpg-indoor-tileset-expansion-1 rpg_indoor_tileset_expansion_1_trans.png CC-BY 
+https://opengameart.org/content/16x16-indoor-rpg-tileset-the-baseline   tilesetformattedupdate1.png, 16x16extratiles.png CC-BY
+https://opengameart.org/content/32x32-and-16x16-rpg-tiles-forest-and-some-interior-tiles testtiles32x32_castles.png CC-BY
+https://opengameart.org/content/classical-temple-tiles classical_temple_tiles.png PD
+https://opengameart.org/content/handpainted-stone-floor-texture
+https://opengameart.org/content/lpc-compatible-ancient-greek-architecture CC-BY
+https://opengameart.org/content/tileable-200x200-dirt-texture CC-BY
+https://opengameart.org/content/sunset-temple-tiles CC-BY or PD TemplTiles.png,SunsetTempleBackground.png
+https://opengameart.org/content/two-swords (used as reference, no actual material included due to GPL)
+https://opengameart.org/content/lpc-dungeon-elements
+https://opengameart.org/content/lpc-cats-and-dogs

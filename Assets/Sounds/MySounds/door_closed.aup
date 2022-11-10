@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="door_closed_data" version="1.3.0" audacityversion="2.3.3" sel0="0.0000000000" sel1="7.8831746032" vpos="0" h="0.0000000000" zoom="172.2656250000" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="Audio Track" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="31.622776" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="347648">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fc58.au" len="262144" min="-0.028426" max="0.037039" rms="0.003075"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="eff1f5d7.au" len="85504" min="-0.029763" max="0.028518" rms="0.001735"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<labeltrack name="Label Track" isSelected="0" height="73" minimized="0" numlabels="4">
+		<label t="0.3541043084" t1="1.0507029478" title="door_locked_1"/>
+		<label t="1.7124716553" t1="2.6238548753" title="door_locked_2"/>
+		<label t="4.5685260771" t1="5.1809523810" title="door_locked_3"/>
+		<label t="6.6728344671" t1="6.9340589569" title="door_locked_4"/>
+	</labeltrack>
+</project>
